@@ -1,0 +1,64 @@
+body {
+  background-color: #eeeeee;
+  overflow-x: hidden;
+  font-family: "Domine", serif;
+}
+
+.admin-flex-container {
+  display: flex;
+  height: 100vh;
+  background-color: #eeeeee;
+}
+
+.admin-flex-container > div {
+  background-color: #141534;
+  color: white;
+  width: 20%;
+  margin: 10px;
+  text-align: center;
+  line-height: 75px;
+  font-size: 20px;
+  display: table-cell;
+  vertical-align: middle;
+  border-radius: 0.7%;
+}
+
+#admin-view {
+  flex-basis: 78%;
+  background-color: #eeeeee;
+  color: black;
+  display: flex;
+  flex-direction: column;
+}
+
+#top-flex-cards {
+  width: 25%;
+  height: 3.5em;
+  background-color: white;
+  border-radius: 4%;
+  box-shadow: 3px 3px 3px 3px grey;
+}
+
+#report-table {
+  width: 98%;
+  margin-left: 1%;
+  border-radius: 1%;
+  margin-top: 1em;
+
+  background-color: white;
+  box-shadow: 3px 3px 3px 3px grey;
+}
+
+table,
+td,
+th {
+}
+
+table {
+  border-collapse: collapse;
+  width: 100%;
+}
+
+th {
+  height: 20px;
+}
