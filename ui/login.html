@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>POLITICO</title>
+    <!-- Include font awesome cdn -->
+    <link
+      rel="stylesheet"
+      type="text/css"
+      href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css"
+    />
+    <link
+      href="https://fonts.googleapis.com/css?family=Open+Sans"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" type="text/css" href="css/index.css" />
+    <link rel="stylesheet" type="text/css" href="css/signup.css" />
+
+    <style type="text/css">
+      #mynav-flex-container {
+        display: flex;
+      }
+    </style>
+  </head>
+  <body>
+    <div id="mynav-flex-container">
+      <div id="mynavbar" class="nav-styles">
+        <a href="#home">Home</a> <a href="#news">View result</a>
+        <a href="#contact">Petition result</a>
+      </div>
+      <div id="push-right" class="nav-styles">
+        <a id="reg" href="#reg">Signup</a> <a id="ham" href="#ham">Login</a>
+      </div>
+    </div>
+
+    <div id="drop-down-container">
+      <div class="drop-down" id="dropdown-child-one"><a href="#">Home</a></div>
+      <div class="drop-down"><a href="#">View result</a></div>
+      <div class="drop-down"><a href="#">Petition result</a></div>
+      <div class="drop-down" id="last-two"><a href="#">Signup</a></div>
+      <div class="drop-down" id="last-two"><a href="#">Login</a></div>
+    </div>
+
+    <div class="signup-flex-container">
+      <div id="signup-image-case">
+        <img src="img/signupthree.jpg" width="100%;" />
+      </div>
+      <div id="signup-case">
+        <h2 id="signup-header">Login</h2>
+        <div id="signup-input-case">
+          <form>
+            <div>
+              <p class="small-font-size">Email</p>
+              <input type="email" name="email" placeholder="Email..." /><br />
+              <p class="small-font-size">Password</p>
+              <input
+                type="password"
+                name="password"
+                placeholder="Password..."
+              />
+              <br />
+              <button type="submit" class="button">Login</button>
+            </div>
+          </form>
+        </div>
+      </div>
+    </div>
+
+    <div class="myfooter">
+      <p>&#169; EMMYGOZI 2019, Andela Nigeria Fellowship Cycle 41</p>
+    </div>
+
+    <script src="js/signup.js"></script>
+  </body>
+</html>
