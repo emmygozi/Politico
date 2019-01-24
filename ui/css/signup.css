@@ -7,7 +7,7 @@ body {
   height: 85vh;
   background-color: #eeeeee;
   border-radius: 1%;
-  margin-top: 4em;
+  margin-top: 3.5em;
 }
 
 .signup-flex-container > div {
@@ -20,6 +20,7 @@ body {
 
 #signup-case {
   width: 30%;
+  margin-bottom: -0.4em;
 }
 
 #signup-input-case {
@@ -31,13 +32,13 @@ body {
   color: #1e1e1e;
   text-align: left;
   margin-left: 3rem;
-  margin-bottom: -1rem;
+  margin-bottom: 0.5rem;
 }
 
 img {
   height: 84vh;
   opacity: 0.9;
-  margin-top: 0.3em;
+  margin-top: 0.7em;
 }
 
 .small-font-size {
@@ -53,6 +54,7 @@ input {
   height: 1rem;
   width: 80%;
   color: #848484;
+  font-size: 20px;
 }
 
 input:focus {
@@ -72,6 +74,12 @@ input:focus {
   text-decoration: none;
   display: inline-block;
   border-radius: 50px 50px;
+  font-weight: bolder;
+  font-size: 12px;
+}
+
+.button:hover {
+  background-color: mediumseagreen;
 }
 
 .button:hover {
