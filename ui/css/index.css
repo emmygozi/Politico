@@ -1,5 +1,5 @@
 body {
-  font-family: "Domine", serif;
+  font-family: "Open Sans", sans-serif;
 }
 
 hr {
@@ -127,7 +127,7 @@ hr {
 
 #mynavbar {
   background-color: #141534;
-  width: 80%;
+  width: 66.4%;
   padding-left: 5em;
 }
 
@@ -161,7 +161,7 @@ hr {
 }
 
 #push-right {
-  width: 20%;
+  width: 31.6%;
   background-color: #bb1b23;
 }
 
@@ -212,4 +212,8 @@ hr {
 .myfooter > p {
   font-size: 1em;
   letter-spacing: 0.3em;
+}
+
+#reg {
+  margin-left: 7rem;
 }
