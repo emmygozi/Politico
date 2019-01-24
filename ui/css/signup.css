@@ -1,5 +1,5 @@
 body {
-  font-family: "Domine", serif;
+  font-family: "Open Sans", sans-serif;
 }
 
 .signup-flex-container {
@@ -80,6 +80,10 @@ input:focus {
 
 .button:hover {
   background-color: mediumseagreen;
+}
+
+.button:hover {
+  background-color: #2c946e;
 }
 
 @media screen and (max-width: 720px) {
