@@ -13,16 +13,12 @@
       rel="stylesheet"
     />
     <link rel="stylesheet" type="text/css" href="css/index.css" />
-    <link rel="stylesheet" type="text/css" href="css/signup.css" />
+    <link rel="stylesheet" type="text/css" href="css/style.css" />
+    <link rel="stylesheet" type="text/css" href="css/viewresult.css" />
 
     <style type="text/css">
       #mynav-flex-container {
         display: flex;
-      }
-      .candidate-selection {
-        width: 10rem;
-        height: 1.8rem;
-        border-radius: 5px;
       }
     </style>
   </head>
@@ -34,8 +30,8 @@
         <a href="vote.html">Vote</a> <a href="petition.html">Petition result</a>
       </div>
       <div id="push-right" class="nav-styles">
-         <a id="reg" href="#">Logout</a>
-        <a id="ham" href="#"></a>
+        <a id="reg" href="#">Logout</a>
+      <a id="ham" href="#"></a>
       </div>
     </div>
 
@@ -54,42 +50,49 @@
       </div>
     </div>
 
-    <div class="signup-flex-container">
-      <div id="signup-image-case">
-        <img src="img/signupthree.jpg" width="100%;" />
-      </div>
-      <div id="signup-case">
-        <h2 id="signup-header">Become a candidate</h2>
-        <div id="signup-input-case">
-          <form>
-            <div>
-              <p class="small-font-size">Office</p>
-              <select class="candidate-selection">
-                <option>Select office</option
-                ><option value="1">LG Chairman</option
-                ><option value="2">Governor</option
-                ><option value="3">Senate</option
-                ><option value="4">President</option></select
-              ><br />
-              <p class="small-font-size">Party</p>
-              <select class="candidate-selection">
-                <option>party name</option
-                ><option value="1">PDP</option
-                ><option value="2">ACN</option
-                ><option value="3">ANN</option></select
-              >
-              <br />
-              <button type="submit" class="button">submit</button>
-            </div>
-          </form>
-        </div>
-      </div>
+    <div id="signup-case">
+      <table>
+        <tr>
+          <th>Party name</th>
+          <th>Office</th>
+          <th>Candidate name</th>
+          <th>Number of votes</th>
+          <th>Petition against candidate</th>
+        </tr>
+        <tr>
+          <td><img src="img/pdp.png" height="25rem;" width="25rem;" /> PDP</td>
+          <td>LG Chairman</td>
+          <td>Paul Boseman Wakanda</td>
+          <td>100</td>
+          <td>none</td>
+        </tr>
+        <tr>
+          <td><img src="img/apc.jpg" height="25rem;" width="25rem;" /> APC</td>
+          <td>Governor</td>
+          <td>Griffin Sanchez Trump</td>
+          <td>100</td>
+          <td>none</td>
+        </tr>
+        <tr>
+          <td><img src="img/ann.jpg" height="25rem;" width="25rem;" /> ANN</td>
+          <td>Governor</td>
+          <td>Swanson Liverpool Madrid</td>
+          <td>30</td>
+          <td>10</td>
+        </tr>
+        <tr>
+          <td><img src="img/ann.jpg" height="25rem;" width="25rem;" /> ANN</td>
+          <td>Senator</td>
+          <td>Brown Black Bush</td>
+          <td>250</td>
+          <td>1</td>
+        </tr>
+      </table>
     </div>
 
     <div class="myfooter">
       <p>&#169; EMMYGOZI 2019, Andela Nigeria Fellowship Cycle 41</p>
     </div>
-
-    <script src="js/signup.js"></script>
+    <script src="js/viewresult.js"></script>
   </body>
 </html>
