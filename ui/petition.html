@@ -19,11 +19,6 @@
       #mynav-flex-container {
         display: flex;
       }
-      .candidate-selection {
-        width: 10rem;
-        height: 1.8rem;
-        border-radius: 5px;
-      }
     </style>
   </head>
   <body>
@@ -34,8 +29,7 @@
         <a href="vote.html">Vote</a> <a href="petition.html">Petition result</a>
       </div>
       <div id="push-right" class="nav-styles">
-         <a id="reg" href="#">Logout</a>
-        <a id="ham" href="#"></a>
+        <a id="reg" href="#">Logout</a> <a id="ham" href="#"></a>
       </div>
     </div>
 
@@ -59,28 +53,22 @@
         <img src="img/signupthree.jpg" width="100%;" />
       </div>
       <div id="signup-case">
-        <h2 id="signup-header">Become a candidate</h2>
+        <h2 id="signup-header">Petition vote outcome</h2>
         <div id="signup-input-case">
-          <form>
-            <div>
-              <p class="small-font-size">Office</p>
-              <select class="candidate-selection">
-                <option>Select office</option
-                ><option value="1">LG Chairman</option
-                ><option value="2">Governor</option
-                ><option value="3">Senate</option
-                ><option value="4">President</option></select
-              ><br />
-              <p class="small-font-size">Party</p>
-              <select class="candidate-selection">
-                <option>party name</option
-                ><option value="1">PDP</option
-                ><option value="2">ACN</option
-                ><option value="3">ANN</option></select
-              >
-              <br />
-              <button type="submit" class="button">submit</button>
-            </div>
+          <form style="text-align: left;">
+            <select style="width: 6rem; height: 1.8rem; border-radius: 5px;"
+              ><option>Select office</option
+              ><option value="1">Governor</option
+              ><option value="2">Senate</option
+              ><option value="3">President</option></select
+            ><br /><textarea
+              name="message"
+              rows="10"
+              cols="35"
+              placeholder="Enter petition details"
+              style="border-radius: 7px;"
+            ></textarea
+            ><br /><button type="submit" class="button">Submit petition</button>
           </form>
         </div>
       </div>

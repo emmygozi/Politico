@@ -1,0 +1,26 @@
+#signup-case {
+  width: 100%;
+  margin-left: 13rem;
+  margin-top: 12rem;
+  text-align: left;
+  height: 100vh;
+}
+
+table,
+td,
+th {
+  border: 1px solid #d8d4d4;
+}
+
+table {
+  border-collapse: collapse;
+  width: 70%;
+}
+
+th {
+  height: 5rem;
+}
+
+@media only screen and (max-width: 720px) {
+  
+}
