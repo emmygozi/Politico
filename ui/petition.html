@@ -44,8 +44,7 @@
       </div>
       <div class="drop-down"><a href="vote.html">Vote</a></div>
       <div class="drop-down" id="last-two">
-        <a href="login.html">Login</a>
-        <a id="logout" href="signup.html">Signup</a>
+        <a id="logout" href="#">Logout</a>
       </div>
     </div>
 
@@ -54,14 +53,22 @@
         <img src="img/signupthree.jpg" width="100%;" />
       </div>
       <div id="signup-case">
-        <h4 id="signup-header">Please enter email you registered</h4>
+        <h2 id="signup-header">Petition vote outcome</h2>
         <div id="signup-input-case">
-          <form>
-            <div>
-              <p>Email</p>
-              <input type="email" name="email" placeholder="Email..." /><br />
-              <button type="submit" class="button">Get token</button>
-            </div>
+          <form style="text-align: left;">
+            <select style="width: 6rem; height: 1.8rem; border-radius: 5px;"
+              ><option>Select office</option
+              ><option value="1">Governor</option
+              ><option value="2">Senate</option
+              ><option value="3">President</option></select
+            ><br /><textarea
+              name="message"
+              rows="10"
+              cols="35"
+              placeholder="Enter petition details"
+              style="border-radius: 7px;"
+            ></textarea
+            ><br /><button type="submit" class="button">Submit petition</button>
           </form>
         </div>
       </div>

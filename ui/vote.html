@@ -19,6 +19,11 @@
       #mynav-flex-container {
         display: flex;
       }
+      .candidate-selection {
+        width: 10rem;
+        height: 1.8rem;
+        border-radius: 5px;
+      }
     </style>
   </head>
   <body>
@@ -44,8 +49,7 @@
       </div>
       <div class="drop-down"><a href="vote.html">Vote</a></div>
       <div class="drop-down" id="last-two">
-        <a href="login.html">Login</a>
-        <a id="logout" href="signup.html">Signup</a>
+        <a id="logout" href="#">Logout</a>
       </div>
     </div>
 
@@ -54,13 +58,27 @@
         <img src="img/signupthree.jpg" width="100%;" />
       </div>
       <div id="signup-case">
-        <h4 id="signup-header">Please enter email you registered</h4>
+        <h2 id="signup-header">Vote for a candidate</h2>
         <div id="signup-input-case">
           <form>
             <div>
-              <p>Email</p>
-              <input type="email" name="email" placeholder="Email..." /><br />
-              <button type="submit" class="button">Get token</button>
+              <p class="small-font-size">Office</p>
+              <select class="candidate-selection">
+                <option>Select office</option
+                ><option value="1">LG Chairman</option
+                ><option value="2">Governor</option
+                ><option value="3">Senate</option
+                ><option value="4">President</option></select
+              ><br />
+              <p class="small-font-size">Candidate</p>
+              <select class="candidate-selection">
+                <option>Name</option
+                ><option value="1">Christiano Ronaldo</option
+                ><option value="2">Zlatan Ibrahimovic</option
+                ><option value="3">Paul Podgba</option></select
+              >
+              <br />
+              <button type="submit" class="button">submit</button>
             </div>
           </form>
         </div>
