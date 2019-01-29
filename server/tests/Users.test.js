@@ -71,6 +71,4 @@ describe("POST API/V1/AUTH/SIGNUP /", () => {
       throw err.message;
     }
   });
-
-  email : 'henryigwe@gunners.com'
 });
