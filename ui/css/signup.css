@@ -14,7 +14,7 @@ body {
   background-color: #eeeeee;
   color: #848484;
   width: 70%;
-  line-height: 75px;
+  line-height: 70px;
   font-size: 20px;
 }
 
@@ -93,5 +93,9 @@ input:focus {
 
   img {
     height: 100vh;
+  }
+
+  #resize-signup-form {
+    line-height: 5rem;
   }
 }

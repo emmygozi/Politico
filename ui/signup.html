@@ -1,6 +1,7 @@
 <!DOCTYPE html>
 <html>
   <head>
+      <meta content="width=device-width, initial-scale=1" name="viewport" />
     <title>POLITICO</title>
     <!-- Include font awesome cdn -->
     <link
@@ -14,6 +15,7 @@
     />
     <link rel="stylesheet" type="text/css" href="css/index.css" />
     <link rel="stylesheet" type="text/css" href="css/signup.css" />
+    <link rel="stylesheet" type="text/css" href="css/mobile.css">
 
     <style type="text/css">
       #mynav-flex-container {
@@ -29,8 +31,9 @@
                   <a href="vote.html">Vote</a> <a href="petition.html">Petition result</a>
                 </div>
                 <div id="push-right" class="nav-styles">
+                    <a id="pollogo" href="index.html">POLITICO</a>
                   <a id="reg" href="login.html">Login</a>
-                <a id="ham" href="#"></a>
+                  <a id="ham" href="#"><i class='fa fa-bars'></i></a>
                 </div>
               </div>
           
@@ -44,7 +47,7 @@
       <div class="drop-down">
         <a href="candidate.html">Become a candidate</a>
       </div>
-      <div class="drop-down"><a href="vote.html">Vote</a></div>
+      <div class="drop-down"><a href="viewresult.html">Vote</a></div>
       <div class="drop-down" id="last-two">
         <a href="login.html">Login</a>
       </div>
@@ -61,7 +64,7 @@
         <h2 id="signup-header">Signup</h2>
         <div id="signup-input-case">
           <form>
-            <div>
+            <div id="resize-signup-form">
               <p class="small-font-size">First Name</p>
               <input type="text" name="firstname" placeholder="First name..." />
               <p class="small-font-size">Last Name</p>
@@ -77,14 +80,14 @@
                 placeholder="Password..."
               />
               <p class="small-font-size">Phone Number</p>
-              <input type="tel" name="phoneNumber" placeholder="Phone..."">
+              <input type="tel" name="phoneNumber" placeholder="Phone...">
               <p class="small-font-size">Passport Url</p>
               <input
                 type="url"
                 name="passportUrl"
                 placeholder="Passport url..."
-              /><br />
-              <button type="submit" class="button">Register</button>
+              />
+              <button class="button" ><a href="admin/admin.html" style="text-decoration: none; color: white;">Register</a></button>
             </div>
           </form>
         </div>
@@ -95,6 +98,6 @@
       <p>&#169; EMMYGOZI 2019, Andela Nigeria Fellowship Cycle 41</p>
     </div>
 
-    <script src="js/signup.js"></script>
+    <script src="js/index.js"></script>
   </body>
 </html>
