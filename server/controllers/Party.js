@@ -60,12 +60,12 @@ class Party {
   }
 
   static removeAPoliticalParty(req, res) {
-    const removeThisParty = parties
+    const partyToBeRemoved = parties
       .find(searchValue => searchValue.id === parseInt(req.params.id, 10));
-    if (!removeThisParty) return res.status(404).json({ status: 404, error: 'The party requested does not exist' });
+    if (!partyToBeRemoved) return res.status(404).json({ status: 404, error: 'The party requested does not exist' });
 
-    parties.splice(removeThisParty, 1);
-    res.status(200).json({ status: 200, data: [removeThisParty] });
+    parties.splice(partyToBeRemoved, 1);
+    res.status(200).json({ status: 200, data: [partyToBeRemoved] });
   }
 }
 
