@@ -1,7 +1,11 @@
+html,
+body {
+  max-width: 100%;
+  overflow-x: hidden;
+}
+
 #signup-case {
-  width: 100%;
-  margin-left: 13rem;
-  margin-top: 12rem;
+  margin-top: 9rem;
   text-align: left;
   height: 100vh;
 }
@@ -15,6 +19,7 @@ th {
 table {
   border-collapse: collapse;
   width: 70%;
+  margin-left: 13rem;
 }
 
 th {
@@ -22,5 +27,4 @@ th {
 }
 
 @media only screen and (max-width: 720px) {
-  
 }

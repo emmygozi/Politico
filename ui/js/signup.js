@@ -1,4 +1,4 @@
-if (screen.width <= 720) {
+/* if (screen.width <= 720) {
     document.getElementById("mynav-flex-container").style.display = "flex";
     document.getElementById("signup-image-case").style.display = "none";
     document.getElementById("signup-case").style.width = "100%";
@@ -53,3 +53,4 @@ if (screen.width <= 720) {
     };
   }
   
+ */

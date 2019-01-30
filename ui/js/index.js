@@ -34,7 +34,7 @@ window.onscroll = function() {
   }
 };
 
-if (screen.width <= 720) {
+/* if (screen.width <= 720) {
   document.getElementById("mynav-flex-container").style.display = "flex";
   document.getElementById("nav-flex-container").style.display = "none";
   document.getElementById("image-text").style.width = "100%";
@@ -59,12 +59,15 @@ if (screen.width <= 720) {
   ham.style.float = "right";
   ham.style.fontSize = "30px";
 
-  let dropContainer = document.getElementById("drop-down-container");
-  ham.onclick = function() {
-    if (dropContainer.style.display == "block") {
-      dropContainer.style.display = "none";
-    } else {
-      dropContainer.style.display = "block";
-    }
-  };
 }
+ */
+
+let dropContainer = document.getElementById("drop-down-container");
+ham.onclick = function() {
+  ham.style.height = "2rem";
+  if (dropContainer.style.display == "block") {
+    dropContainer.style.display = "none";
+  } else {
+    dropContainer.style.display = "block";
+  }
+};

@@ -1,17 +1,31 @@
 <!DOCTYPE html>
 <html>
 <head>
+		<meta content="width=device-width, initial-scale=1" name="viewport" />
 	<title>POLITICO</title>
 	 <!-- Include font awesome cdn -->
     <link rel="stylesheet" type="text/css" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
     <link href="https://fonts.googleapis.com/css?family=Charm|Domine" rel="stylesheet">
     <link rel="stylesheet" type="text/css" href="../css/style.css">
-    <link rel="stylesheet" type="text/css" href="../css/index.css" />
+		<link rel="stylesheet" type="text/css" href="../css/index.css" />
+		<link rel="stylesheet" type="text/css" href="../css/mobile.css">
 
 <style type="text/css">
+
+
+				html,
+				body {
+  			max-width: 100%;
+  			overflow-x: hidden;
+			}
 	      #mynav-flex-container {
         display: flex;
-      }
+			}
+			
+			.admin-flex-container > div {
+				width: inherit;
+				line-height: inherit;
+			}
       	
 
 </style>
@@ -21,37 +35,42 @@
 
 <div id="mynav-flex-container">
       <div id="mynavbar" class="nav-styles">
-        <a href="#">POLITICO</a> 
+        <a href="admin.html">POLITICO</a> 
       </div>
       <div id="push-right" class="nav-styles">
-        <a id="reg" href="../index.html" target="_blank">Visit site</a>
+					<a id="pollogo" href="admin.html">POLITICO</a>
+					<a id="logout" href="../index.html">Logout</a>
+				<a id="reg" href="../index.html" target="_blank">Visit site</a>
+				<a id="ham" href="#"><i class='fa fa-bars'></i></a>
       </div>
     </div>
 
     <div id="drop-down-container">
-      <div class="drop-down" id="dropdown-child-one"><a href="#">Home</a></div>
-      <div class="drop-down"><a href="#">View result</a></div>
-      <div class="drop-down"><a href="#">Petition result</a></div>
-      <div class="drop-down" id="last-two"><a href="#">Signup</a></div>
-      <div class="drop-down" id="last-two"><a href="#">Login</a></div>
+      <div class="drop-down" id="dropdown-child-one"><a href="#" id="dview-result">View result</a></div>
+      <div class="drop-down"><a href="#" id="dview-party">View party</a></div>
+      <div class="drop-down"><a href="#" id="dcreate-party">Create party</a></div>
+      <div class="drop-down" id="last-two"><a href="#" id="dview-office">View office</a></div>
+			<div class="drop-down" id="last-two"><a href="#" id="dcreate-office">Create office</a></div>
+			<div class="drop-down" id="last-two"><a href="../index.html" id="dlogout">Logout</a></div>
     </div>
 
 
 	<div class="admin-flex-container">
 		<div id="side-bar">
-			<div style="margin-top: 6rem;">
+			<div style="margin-top: 6rem;" class="reduce-line-height">
 				<div class="reduce-line-height">Election Result  &nbsp;<i class="fa fa-angle-double-right"></i></div>
 				<div class="align-admin-list" ><small> <a href="#" id="view-result" >View result</a></small></div>
 				
 			</div>
-			<div>
-				<div>Political party &nbsp;<i class="fa fa-angle-double-right"></i></div>	
+			<div class="reduce-line-height">
+				<div >Political party &nbsp;<i class="fa fa-angle-double-right"></i></div>	
 				<div class="align-admin-list"><small> <a href="#" id="view-party">View party</a></small></div>
+				<div class="align-admin-list"><small> <a href="#" id='party-create' >create party</a></small></div>
 			</div>
-			<div>
-				<div>Political office &nbsp;<i class="fa fa-angle-double-right"></i></div>
-				<div class="align-admin-list"><small> <a href="#" id="view-office">View political office</a></small></div>
-				<div class="align-admin-list"><small> <a href="#" id="create-office">Start Creating political office</a></small></div>
+			<div class="reduce-line-height">
+				<div >Political office &nbsp;<i class="fa fa-angle-double-right"></i></div>
+				<div class="align-admin-list"><small> <a href="#" id="view-office">View office</a></small></div>
+				<div class="align-admin-list"><small> <a href="#" id="create-office">Create office</a></small></div>
 			</div>
 		</div>
 		<div id="admin-view">
@@ -141,6 +160,20 @@
     </div>
 
 
-<script src="../js/admin.js"></script>
+		
+		<script>
+			let dropContainer = document.getElementById("drop-down-container");
+ham.onclick = function() {
+  ham.style.height = "2rem";
+  if (dropContainer.style.display == "block") {
+    dropContainer.style.display = "none";
+  } else {
+    dropContainer.style.display = "block";
+  }
+};
+
+		</script>
+		<script src="../js/admin.js"></script>
+		
 </body>
 </html>

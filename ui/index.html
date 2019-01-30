@@ -1,6 +1,7 @@
 <!DOCTYPE html>
 <html>
   <head>
+      <meta content="width=device-width, initial-scale=1" name="viewport" />
     <title>POLITICO</title>
     <!-- Include font awesome cdn -->
     <link
@@ -17,6 +18,7 @@
       rel="stylesheet"
     />
     <link rel="stylesheet" type="text/css" href="css/index.css" />
+    <link rel="stylesheet" type="text/css" href="css/mobile.css">
     <style></style>
   </head>
 
@@ -28,8 +30,10 @@
         <a href="petition.html">Petition result</a>
       </div>
       <div id="push-right" class="nav-styles">
+        <a id="pollogo" href="index.html">POLITICO</a>
         <a id="reg" href="signup.html">Signup</a>
-        <a id="ham" href="#">Login</a>
+        <a id="log" href="login.html">Login</a>
+        <a id="ham" href="#"><i class='fa fa-bars'></i></a>
       </div>
     </div>
 
@@ -37,7 +41,7 @@
       <div class="drop-down" id="dropdown-child-one">
         <a href="index.html">Home</a>
       </div>
-      <div class="drop-down"><a href="vote.html">View result</a></div>
+      <div class="drop-down"><a href="viewresult.html">View result</a></div>
       <div class="drop-down"><a href="petition.html">Petition result</a></div>
       <div class="drop-down">
         <a href="candidate.html">Become a candidate</a>
@@ -49,7 +53,7 @@
 
     <div class="myflex-container">
       <div
-        style="justify-content: flex-start; align-self: center; height: 12em;margin-left: -1em; margin-top: -1em; "
+        style="justify-content: flex-start; width: 28%; align-self: center; height: 14.95em;margin-left: -1em; margin-top: -1em; "
       >
         <div>
           <div><i class="fa fa-star" style="padding-left: 2em;"></i></div>
@@ -63,7 +67,7 @@
         <img src="img/womann.png" height="100%;" width="100%;" />
       </div>
       <div
-        style="justify-content: flex-end; align-self: center;   width: 15%; margin-top: -0.6em; margin-right: -1em; "
+        style="justify-content: flex-end; align-self: center;   width: 17%; margin-top: -2.1em; margin-right: -1em; "
         id="nav-flex-container"
         class="nav-flex-container"
       >
@@ -73,6 +77,11 @@
         <div class="hide-text"><a href="signup.html">Signup</a></div>
         <div class="hide-text" id="blue-hide-text"><a href="login.html">Login</a></div>
       </div>
+    </div>
+
+    <div id="move-image">
+    <div id="show-image-mobile">
+    </div>
     </div>
 
     <div id="flex-topic-container">
@@ -113,7 +122,7 @@
       <div id="vote-design">
         <div
           id="image-text"
-          style=" width: 90%;   height: 10em; background-color: rgba(20, 21, 52, 0.6); color: white; text-align: center; font-size: 2em;
+          style="height: 10em; background-color: rgba(20, 21, 52, 0.6); color: white; text-align: center;
    padding-top: 1em;"
         >
           VOTE!<br /><br />
@@ -127,6 +136,12 @@
       <p>&#169; EMMYGOZI 2019, Andela Nigeria Fellowship Cycle 41</p>
     </div>
 
-    <script src="js/index.js"></script>
+    <script>
+      window.onload = function addScript( ) {
+  var s = document.createElement( 'script' );
+  s.setAttribute( 'src', 'js/index.js' );
+  document.body.appendChild( s );
+}
+    </script>
   </body>
 </html>
