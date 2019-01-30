@@ -1,6 +1,7 @@
 <!DOCTYPE html>
 <html>
   <head>
+      <meta content="width=device-width, initial-scale=1" name="viewport" />
     <title>POLITICO</title>
     <!-- Include font awesome cdn -->
     <link
@@ -15,6 +16,7 @@
     <link rel="stylesheet" type="text/css" href="css/index.css" />
     <link rel="stylesheet" type="text/css" href="css/style.css" />
     <link rel="stylesheet" type="text/css" href="css/viewresult.css" />
+    <link rel="stylesheet" type="text/css" href="css/mobile.css">
 
     <style type="text/css">
       #mynav-flex-container {
@@ -30,8 +32,9 @@
         <a href="vote.html">Vote</a> <a href="petition.html">Petition result</a>
       </div>
       <div id="push-right" class="nav-styles">
+          <a id="pollogo" href="index.html">POLITICO</a>
         <a id="reg" href="#">Logout</a>
-      <a id="ham" href="#"></a>
+        <a id="ham" href="#"><i class='fa fa-bars'></i></a>
       </div>
     </div>
 
@@ -39,7 +42,7 @@
       <div class="drop-down" id="dropdown-child-one">
         <a href="index.html">Home</a>
       </div>
-      <div class="drop-down"><a href="vote.html">View result</a></div>
+      <div class="drop-down"><a href="viewresult.html">View result</a></div>
       <div class="drop-down"><a href="petition.html">Petition result</a></div>
       <div class="drop-down">
         <a href="candidate.html">Become a candidate</a>
@@ -93,6 +96,6 @@
     <div class="myfooter">
       <p>&#169; EMMYGOZI 2019, Andela Nigeria Fellowship Cycle 41</p>
     </div>
-    <script src="js/viewresult.js"></script>
+    <script src="js/index.js"></script>
   </body>
 </html>

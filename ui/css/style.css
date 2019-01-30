@@ -59,6 +59,7 @@ th {
 table {
   border-collapse: collapse;
   width: 100%;
+  font-size: 18px;
 }
 
 th {
@@ -66,14 +67,14 @@ th {
 }
 
 #side-bar {
-  margin-top: 3rem;
   height: 100vh;
   line-height: 4rem;
   font-size: medium;
+  width: 15%;
 }
 
 .reduce-line-height {
-  line-height: 1rem;
+  line-height: 2rem;
 }
 
 div > small > a {
@@ -132,7 +133,7 @@ a:hover {
 
 .align-admin-list {
   text-align: left;
-  padding-left: 5rem;
+  padding-left: 4rem;
 }
 
 #myProgress {
@@ -184,4 +185,8 @@ a:hover {
 #hide-political-party {
   text-align: left;
   margin-left: 10rem;
+}
+
+#remove-margin-here {
+  margin-left: 9em;
 }

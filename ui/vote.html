@@ -1,6 +1,7 @@
 <!DOCTYPE html>
 <html>
   <head>
+      <meta content="width=device-width, initial-scale=1" name="viewport" />
     <title>POLITICO</title>
     <!-- Include font awesome cdn -->
     <link
@@ -14,6 +15,7 @@
     />
     <link rel="stylesheet" type="text/css" href="css/index.css" />
     <link rel="stylesheet" type="text/css" href="css/signup.css" />
+    <link rel="stylesheet" type="text/css" href="css/mobile.css">
 
     <style type="text/css">
       #mynav-flex-container {
@@ -34,7 +36,8 @@
         <a href="vote.html">Vote</a> <a href="petition.html">Petition result</a>
       </div>
       <div id="push-right" class="nav-styles">
-        <a id="reg" href="#">Logout</a> <a id="ham" href="#"></a>
+          <a id="pollogo" href="index.html">POLITICO</a>
+        <a id="reg" href="#">Logout</a> <a id="ham" href="#"><i class='fa fa-bars'></i></a>
       </div>
     </div>
 
@@ -42,7 +45,7 @@
       <div class="drop-down" id="dropdown-child-one">
         <a href="index.html">Home</a>
       </div>
-      <div class="drop-down"><a href="vote.html">View result</a></div>
+      <div class="drop-down"><a href="viewresult.html">View result</a></div>
       <div class="drop-down"><a href="petition.html">Petition result</a></div>
       <div class="drop-down">
         <a href="candidate.html">Become a candidate</a>
@@ -53,15 +56,17 @@
       </div>
     </div>
 
-    <div class="signup-flex-container">
-      <div id="signup-image-case">
-        <img src="img/signupthree.jpg" width="100%;" />
+    <div class="signup-flex-container" >
+      <div id="signup-image-case" class="striped-background">
+        <div class="striped-background-child">
+          Vote for your preferred candidate one at a time at local, state, senate and presidential levels of government
+        </div>
       </div>
       <div id="signup-case">
         <h2 id="signup-header">Vote for a candidate</h2>
         <div id="signup-input-case">
           <form>
-            <div>
+            <div style="line-height: 80px">
               <p class="small-font-size">Office</p>
               <select class="candidate-selection">
                 <option>Select office</option
@@ -89,6 +94,6 @@
       <p>&#169; EMMYGOZI 2019, Andela Nigeria Fellowship Cycle 41</p>
     </div>
 
-    <script src="js/signup.js"></script>
+    <script src="js/index.js"></script>
   </body>
 </html>

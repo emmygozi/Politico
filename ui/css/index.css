@@ -129,6 +129,7 @@ hr {
   background-color: #141534;
   width: 66.4%;
   padding-left: 5em;
+  display: block;
 }
 
 .nav-styles a {
@@ -148,7 +149,7 @@ hr {
 }
 
 #middle-flex {
-  flex-basis: 45%;
+  flex-basis: 55%;
   background-color: #eeeeee;
 }
 
@@ -170,13 +171,13 @@ hr {
   height: 3em;
   background-color: #141534;
   text-align: center;
+  padding-top: 5px;
+  border: 0.5px solid #eeeeee;
 }
 
 .drop-down a {
   text-decoration: none;
   color: white;
-  font-size: 40px;
-  padding-top: 80px;
 }
 
 #last-two {
@@ -216,4 +217,17 @@ hr {
 
 #reg {
   margin-left: 7rem;
+}
+
+#image-text {
+  width: 90%;
+  font-size: 2em;
+}
+
+#ham {
+  display: none;
+}
+
+#pollogo {
+  display: none;
 }
