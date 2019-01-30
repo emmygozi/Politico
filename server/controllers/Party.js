@@ -12,11 +12,7 @@ class Party {
     if (!updatePartyName) {
       return res.status(404).json({
         status: 404,
-        data: [
-          {
-            message: 'The food item with the given ID was not found!'
-          }
-        ]
+        error: 'The food item with the given ID was not found!'
       });
     }
 
@@ -32,10 +28,7 @@ class Party {
     const id = parties[parties.length - 1].id + 1;
 
     const aNewPartyRequest = {
-      id,
-      name,
-      hqAddress,
-      logoUrl
+      id, name, hqAddress, logoUrl
     };
 
     const alreadyCreatedParty = parties.find(
@@ -45,13 +38,13 @@ class Party {
     if (alreadyCreatedParty) {
       return res.status(409).json({
         status: 409,
-        message: `An party with '${name}' already exists`
+        error: `An party with '${name}' already exists`
       });
     }
     parties.push(aNewPartyRequest);
     res.status(201).json({
       status: 201,
-      data: parties[parties.length - 1]
+      data: [parties[parties.length - 1]]
     });
   }
 }
