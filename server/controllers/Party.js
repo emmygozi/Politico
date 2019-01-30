@@ -1,8 +1,30 @@
-import parties from "../models/party";
+import parties from '../models/party';
 
 class Party {
   static getAll(req, res) {
-    res.status(200).json({ status: 200, data: parties });
+    res.status(200).json({ status: 200, data: [parties] });
+  }
+
+  static editPartyName(req, res) {
+    const updatePartyName = parties.find(
+      aParty => aParty.id === parseInt(req.params.id, 10)
+    );
+    if (!updatePartyName) {
+      return res.status(404).json({
+        status: 404,
+        data: [
+          {
+            message: 'The food item with the given ID was not found!'
+          }
+        ]
+      });
+    }
+
+    updatePartyName.name = req.body.name;
+
+    const { id, name } = updatePartyName;
+
+    res.status(200).json({ status: 200, data: [{ id, name }] });
   }
 
   static createNewParty(req, res) {
