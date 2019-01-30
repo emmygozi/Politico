@@ -5,6 +5,7 @@ import Parties from '../controllers/Party';
 const router = express.Router();
 
 router.get('/parties', Parties.getAll);
+router.get('/parties/:id', Parties.getOneParty);
 router.post('/parties', Parties.createNewParty);
 router.patch('/parties/:id', Parties.editPartyName);
 

@@ -47,6 +47,17 @@ class Party {
       data: [parties[parties.length - 1]]
     });
   }
+
+  static getOneParty(req, res) {
+    const specifiedParty = parties
+      .findIndex(searchValue => searchValue.id === parseInt(req.params.id, 10));
+    if (specifiedParty === -1) {
+      return res.status(404)
+        .json({ status: 404, error: 'The food item with the given ID was not found!' });
+    }
+
+    res.status(200).json({ status: 200, message: 'Retrieved specified food item', data: [parties[specifiedParty]] });
+  }
 }
 
 export default Party;

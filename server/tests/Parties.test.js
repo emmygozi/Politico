@@ -20,6 +20,34 @@ describe('GET API/V1/PARTIES /', () => {
   });
 });
 
+describe('GET API/V1/PARTIES/:ID', () => {
+  it('should return a success status 200', async () => {
+    try {
+      const res = await chai.request(app).get('/api/v1/parties/1');
+      expect(res.status).to.equal(200);
+      expect(res.body).to.be.an('object');
+      expect(res.body).to.have.property('status');
+      const sucessStatus = 200;
+      expect(res.body).to.have.property('status', sucessStatus);
+    } catch (err) {
+      throw err.message;
+    }
+  });
+
+  it('should return a success status 404', async () => {
+    try {
+      const res = await chai.request(app).get('/api/v1/parties/5000');
+      expect(res.status).to.equal(404);
+      expect(res.body).to.be.an('object');
+      expect(res.body).to.have.property('status');
+      const sucessStatus = 404;
+      expect(res.body).to.have.property('status', sucessStatus);
+    } catch (err) {
+      throw err.message;
+    }
+  });
+});
+
 describe('POST API/V1/PARTIES/', () => {
   let name, hqAddress, logoUrl;
   const exec = async () => {
