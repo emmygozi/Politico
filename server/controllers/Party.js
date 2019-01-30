@@ -12,7 +12,7 @@ class Party {
     if (!updatePartyName) {
       return res.status(404).json({
         status: 404,
-        error: 'The food item with the given ID was not found!'
+        error: 'The party with the given ID was not found!'
       });
     }
 
@@ -38,7 +38,7 @@ class Party {
     if (alreadyCreatedParty) {
       return res.status(409).json({
         status: 409,
-        error: `An party with '${name}' already exists`
+        error: `A party with '${name}' already exists`
       });
     }
     parties.push(aNewPartyRequest);
@@ -53,10 +53,19 @@ class Party {
       .findIndex(searchValue => searchValue.id === parseInt(req.params.id, 10));
     if (specifiedParty === -1) {
       return res.status(404)
-        .json({ status: 404, error: 'The food item with the given ID was not found!' });
+        .json({ status: 404, error: 'The party requested does not exist' });
     }
 
-    res.status(200).json({ status: 200, message: 'Retrieved specified food item', data: [parties[specifiedParty]] });
+    res.status(200).json({ status: 200, data: [parties[specifiedParty]] });
+  }
+
+  static removeAPoliticalParty(req, res) {
+    const removeThisParty = parties
+      .find(searchValue => searchValue.id === parseInt(req.params.id, 10));
+    if (!removeThisParty) return res.status(404).json({ status: 404, error: 'The party requested does not exist' });
+
+    parties.splice(removeThisParty, 1);
+    res.status(200).json({ status: 200, data: [removeThisParty] });
   }
 }
 
