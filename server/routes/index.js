@@ -1,11 +1,11 @@
-import express from 'express';
-import Users from '../controllers/Users';
-
+import express from "express";
+import Users from "../controllers/Users";
+import Parties from "../controllers/Party";
 
 const router = express.Router();
 
-router.post(
-  '/auth/signup', Users.signup
-);
+router.get("/parties", Parties.getAll);
+
+router.post("/auth/signup", Users.signup);
 
 export default router;
