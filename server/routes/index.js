@@ -1,12 +1,13 @@
-import express from "express";
-import Users from "../controllers/Users";
-import Parties from "../controllers/Party";
+import express from 'express';
+import Users from '../controllers/Users';
+import Parties from '../controllers/Party';
 
 const router = express.Router();
 
-router.get("/parties", Parties.getAll);
-router.post("/parties", Parties.createNewParty);
+router.get('/parties', Parties.getAll);
+router.post('/parties', Parties.createNewParty);
+router.patch('/parties/:id', Parties.editPartyName);
 
-router.post("/auth/signup", Users.signup);
+router.post('/auth/signup', Users.signup);
 
 export default router;
