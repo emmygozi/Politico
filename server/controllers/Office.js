@@ -29,6 +29,17 @@ class Office {
   static getAll(req, res) {
     res.status(200).json({ status: 200, data: [offices] });
   }
+
+  static getOneOffice(req, res) {
+    const specifiedOffice = offices
+      .findIndex(searchValue => searchValue.id === parseInt(req.params.id, 10));
+    if (specifiedOffice === -1) {
+      return res.status(404)
+        .json({ status: 404, error: 'The party requested does not exist' });
+    }
+
+    res.status(200).json({ status: 200, data: [offices[specifiedOffice]] });
+  }
 }
 
 export default Office;

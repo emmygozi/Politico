@@ -20,6 +20,47 @@ describe('GET API/V1/OFFICES /', () => {
   });
 });
 
+describe('GET API/V1/OFFICES/:OFFICE-ID', () => {
+  it('should return a success status 200', async () => {
+    try {
+      const res = await chai.request(app).get('/api/v1/offices/1');
+      expect(res.status).to.equal(200);
+      expect(res.body).to.be.an('object');
+      expect(res.body).to.have.property('status');
+      const returnStatus = 200;
+      expect(res.body).to.have.property('status', returnStatus);
+    } catch (err) {
+      throw err.message;
+    }
+  });
+
+  it('should return a not found status 404', async () => {
+    try {
+      const res = await chai.request(app).get('/api/v1/offices/5000');
+      expect(res.status).to.equal(404);
+      expect(res.body).to.be.an('object');
+      expect(res.body).to.have.property('status');
+      const returnStatus = 404;
+      expect(res.body).to.have.property('status', returnStatus);
+    } catch (err) {
+      throw err.message;
+    }
+  });
+
+  it('should return a failure status 400', async () => {
+    try {
+      const res = await chai.request(app).get('/api/v1/offices/a');
+      expect(res.status).to.equal(400);
+      expect(res.body).to.be.an('object');
+      expect(res.body).to.have.property('status');
+      const returnStatus = 400;
+      expect(res.body).to.have.property('status', returnStatus);
+    } catch (err) {
+      throw err.message;
+    }
+  });
+});
+
 
 describe('POST API/V1/OFFICES /', () => {
   let type,
