@@ -39,6 +39,10 @@ more info:
 (https://help.github.com/articles/cloning-a-repository/)
 - Run ``` yarn install/ npm install ``` to install the dependencies in the package.json file.
 
+- checkout to branch `git checkout  ch-heroku-host-163624294`
+- Start localhost  `yarn start:dev/ npm run start:dev`
+- According to specified endpoints, Make get/post/patch/delete request to http://localhost:8000/api/v1/
+
 ### Testing
 
 - Navigate to the project location in your terminal.
@@ -136,7 +140,7 @@ more info:
       </td>
     </tr>
     <tr>
-      <td>GET /office/:id</td>
+      <td>GET /offices/:id</td>
       <td>/api/v1/offices/:id</td>
       <td>Fetch a specific office</td>
       <td>{
