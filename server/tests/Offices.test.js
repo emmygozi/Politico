@@ -33,8 +33,8 @@ describe('POST API/V1/OFFICES /', () => {
       expect(res.status).to.equal(201);
       expect(res.body).to.be.an('object');
       expect(res.body).to.have.property('status');
-      const sucessStatus = 201;
-      expect(res.body).to.have.property('status', sucessStatus);
+      const returnStatus = 201;
+      expect(res.body).to.have.property('status', returnStatus);
     } catch (err) {
       throw err.message;
     }
@@ -46,8 +46,64 @@ describe('POST API/V1/OFFICES /', () => {
       expect(res.status).to.equal(409);
       expect(res.body).to.be.an('object');
       expect(res.body).to.have.property('status');
-      const sucessStatus = 409;
-      expect(res.body).to.have.property('status', sucessStatus);
+      const returnStatus = 409;
+      expect(res.body).to.have.property('status', returnStatus);
+    } catch (err) {
+      throw err.message;
+    }
+  });
+
+  it('should return no empty space 400', async () => {
+    try {
+      name = '';
+      const res = await exec();
+      expect(res.status).to.equal(400);
+      expect(res.body).to.be.an('object');
+      expect(res.body).to.have.property('status');
+      const returnStatus = 400;
+      expect(res.body).to.have.property('status', returnStatus);
+    } catch (err) {
+      throw err.message;
+    }
+  });
+
+  it('should return less than min character 400', async () => {
+    try {
+      name = 's';
+      const res = await exec();
+      expect(res.status).to.equal(400);
+      expect(res.body).to.be.an('object');
+      expect(res.body).to.have.property('status');
+      const returnStatus = 400;
+      expect(res.body).to.have.property('status', returnStatus);
+    } catch (err) {
+      throw err.message;
+    }
+  });
+
+  it('should return no empty space 400', async () => {
+    try {
+      type = '';
+      const res = await exec();
+      expect(res.status).to.equal(400);
+      expect(res.body).to.be.an('object');
+      expect(res.body).to.have.property('status');
+      const returnStatus = 400;
+      expect(res.body).to.have.property('status', returnStatus);
+    } catch (err) {
+      throw err.message;
+    }
+  });
+
+  it('should return less than min character 400', async () => {
+    try {
+      name = '';
+      const res = await exec();
+      expect(res.status).to.equal(400);
+      expect(res.body).to.be.an('object');
+      expect(res.body).to.have.property('status');
+      const returnStatus = 400;
+      expect(res.body).to.have.property('status', returnStatus);
     } catch (err) {
       throw err.message;
     }

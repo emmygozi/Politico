@@ -12,8 +12,8 @@ describe('GET API/V1/PARTIES /', () => {
       expect(res.status).to.equal(200);
       expect(res.body).to.be.an('object');
       expect(res.body).to.have.property('status');
-      const sucessStatus = 200;
-      expect(res.body).to.have.property('status', sucessStatus);
+      const returnStatus = 200;
+      expect(res.body).to.have.property('status', returnStatus);
     } catch (err) {
       throw err.message;
     }
@@ -27,8 +27,8 @@ describe('GET API/V1/PARTIES/:PARTY-ID', () => {
       expect(res.status).to.equal(200);
       expect(res.body).to.be.an('object');
       expect(res.body).to.have.property('status');
-      const sucessStatus = 200;
-      expect(res.body).to.have.property('status', sucessStatus);
+      const returnStatus = 200;
+      expect(res.body).to.have.property('status', returnStatus);
     } catch (err) {
       throw err.message;
     }
@@ -40,8 +40,8 @@ describe('GET API/V1/PARTIES/:PARTY-ID', () => {
       expect(res.status).to.equal(404);
       expect(res.body).to.be.an('object');
       expect(res.body).to.have.property('status');
-      const sucessStatus = 404;
-      expect(res.body).to.have.property('status', sucessStatus);
+      const returnStatus = 404;
+      expect(res.body).to.have.property('status', returnStatus);
     } catch (err) {
       throw err.message;
     }
@@ -53,8 +53,8 @@ describe('GET API/V1/PARTIES/:PARTY-ID', () => {
       expect(res.status).to.equal(400);
       expect(res.body).to.be.an('object');
       expect(res.body).to.have.property('status');
-      const sucessStatus = 400;
-      expect(res.body).to.have.property('status', sucessStatus);
+      const returnStatus = 400;
+      expect(res.body).to.have.property('status', returnStatus);
     } catch (err) {
       throw err.message;
     }
@@ -62,49 +62,47 @@ describe('GET API/V1/PARTIES/:PARTY-ID', () => {
 });
 
 describe('POST API/V1/PARTIES/', () => {
-  let name, hqAddress, logoUrl;
-  const exec = async () => {
+  it('should return conflict status 409', (done) => {
     try {
-      return await chai
-        .request(app)
+      chai.request(app)
         .post('/api/v1/parties')
         .send({
-          name,
-          hqAddress,
-          logoUrl
+          name: 'APC',
+          hqAddress: '2, Somewhere secure and serene in Abuja, Lagos, Nigeria',
+          logoUrl: 'http://thisisalogo2'
+        })
+        .end((err, res) => {
+          expect(res.status).to.equal(409);
+          expect(res.body).to.be.an('object');
+          expect(res.body).to.have.property('status');
+          expect(res.body).to.have.property('error');
+          const returnStatus = 409;
+          expect(res.body).to.have.property('status', returnStatus);
+          done();
         });
     } catch (err) {
       throw err.message;
     }
-  };
-
-  beforeEach(() => {
-    name = 'Agoodname';
-    hqAddress = 'a given address';
-    logoUrl = 'http://someurl';
   });
 
-  it('should return a success status 201', async () => {
-    try {
-      const res = await exec();
-      expect(res.status).to.equal(201);
-      expect(res.body).to.be.an('object');
-      expect(res.body).to.have.property('status');
-      const sucessStatus = 201;
-      expect(res.body).to.have.property('status', sucessStatus);
-    } catch (err) {
-      throw err.message;
-    }
-  });
 
-  it('should return a resource conflict status 409', async () => {
+  it('should return success status 201', (done) => {
     try {
-      const res = await exec();
-      expect(res.status).to.equal(409);
-      expect(res.body).to.be.an('object');
-      expect(res.body).to.have.property('status');
-      const sucessStatus = 409;
-      expect(res.body).to.have.property('status', sucessStatus);
+      chai.request(app)
+        .post('/api/v1/parties')
+        .send({
+          name: 'NPC',
+          logoUrl: 'http://someurl',
+          hqAddress: 'a given address here.'
+        })
+        .end((err, res) => {
+          expect(res.status).to.equal(201);
+          expect(res.body).to.be.an('object');
+          expect(res.body).to.have.property('status');
+          const returnStatus = 201;
+          expect(res.body).to.have.property('status', returnStatus);
+          done();
+        });
     } catch (err) {
       throw err.message;
     }
@@ -136,8 +134,8 @@ describe('PATCH API/V1/PARTIES/:PARTY-ID', () => {
       expect(res.status).to.equal(200);
       expect(res.body).to.be.an('object');
       expect(res.body).to.have.property('status');
-      const sucessStatus = 200;
-      expect(res.body).to.have.property('status', sucessStatus);
+      const returnStatus = 200;
+      expect(res.body).to.have.property('status', returnStatus);
     } catch (err) {
       throw err.message;
     }
@@ -149,8 +147,8 @@ describe('PATCH API/V1/PARTIES/:PARTY-ID', () => {
       expect(res.status).to.equal(404);
       expect(res.body).to.be.an('object');
       expect(res.body).to.have.property('status');
-      const sucessStatus = 404;
-      expect(res.body).to.have.property('status', sucessStatus);
+      const returnStatus = 404;
+      expect(res.body).to.have.property('status', returnStatus);
     } catch (err) {
       throw err.message;
     }
@@ -164,8 +162,8 @@ describe('DELETE API/V1/PARTIES/:PARTY-ID', () => {
       expect(res.status).to.equal(200);
       expect(res.body).to.be.an('object');
       expect(res.body).to.have.property('status');
-      const sucessStatus = 200;
-      expect(res.body).to.have.property('status', sucessStatus);
+      const returnStatus = 200;
+      expect(res.body).to.have.property('status', returnStatus);
     } catch (err) {
       throw err.message;
     }
@@ -177,8 +175,8 @@ describe('DELETE API/V1/PARTIES/:PARTY-ID', () => {
       expect(res.status).to.equal(404);
       expect(res.body).to.be.an('object');
       expect(res.body).to.have.property('status');
-      const sucessStatus = 404;
-      expect(res.body).to.have.property('status', sucessStatus);
+      const returnStatus = 404;
+      expect(res.body).to.have.property('status', returnStatus);
     } catch (err) {
       throw err.message;
     }
