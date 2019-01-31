@@ -5,6 +5,22 @@ import app from '../app';
 chai.use(chaiHttp);
 const { expect } = chai;
 
+describe('GET API/V1/OFFICES /', () => {
+  it('should return a success status 200', async () => {
+    try {
+      const res = await chai.request(app).get('/api/v1/offices');
+      expect(res.status).to.equal(200);
+      expect(res.body).to.be.an('object');
+      expect(res.body).to.have.property('status');
+      const returnStatus = 200;
+      expect(res.body).to.have.property('status', returnStatus);
+    } catch (err) {
+      throw err.message;
+    }
+  });
+});
+
+
 describe('POST API/V1/OFFICES /', () => {
   let type,
     name;
