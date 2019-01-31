@@ -142,12 +142,12 @@ more info:
     <tr>
       <td>GET /offices/:id</td>
       <td>/api/v1/offices/:id</td>
-      <td>Fetch a specific office</td>
+      <td>Get a specified office</td>
       <td>{
     "status": 200,
     "data": [
         {
-            "officeId": 2,
+            "id": 2,
             "type": "State",
             "name": "Governor",
             "description": "Office of the Governor of Lagos State"
@@ -193,6 +193,22 @@ more info:
                 id: 4,
                 type: 'Local Government',
                 name: 'Local Government Chairman'
+            }
+        ]
+    }
+      </td>
+    </tr>
+    <tr>
+      <td>POST /auth/signup</td>
+      <td>/api/v1/auth/signup</td>
+      <td>Signup as Admin or user</td>
+      <td>{
+        "status": 201,
+        "data": [
+            {
+                id: 4,
+                name: 'Local Government Chairman',
+                email: 'somemail@yahoo.com',
             }
         ]
     }
