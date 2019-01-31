@@ -8,6 +8,7 @@
     "coveralls": "nyc --reporter=lcov --reporter=text-lcov npm test",
     "start": "babel-node ./server/app.js",
     "build": "babel ./server/ -d ./server/dist",
+    "heroku-postbuild": "npm run build",
     "start:dev": "nodemon --exec babel-node ./server/app.js ",
     "test": "set NODE_ENV=test&& nyc --reporter=html --reporter=text mocha --require @babel/register --require babel-polyfill --timeout 10000 ./server/tests/*.js --exit"
   },
