@@ -18,6 +18,7 @@ router.delete('/parties/:id', validateUserId, Parties.removeAPoliticalParty);
 router.post('/auth/signup', ValidatePostRequest.validateUserSignup, Users.signup);
 
 router.get('/offices', Offices.getAll);
+router.get('/offices/:id', validateUserId, Offices.getOneOffice);
 router.post('/offices', validateOffice, Offices.createOffice);
 
 export default router;
