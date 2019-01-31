@@ -25,6 +25,10 @@ class Office {
       data: [offices[offices.length - 1]]
     });
   }
+
+  static getAll(req, res) {
+    res.status(200).json({ status: 200, data: [offices] });
+  }
 }
 
 export default Office;
