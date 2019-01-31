@@ -3,12 +3,12 @@ import { signUsers } from '../models/users';
 class Users {
   static signup(req, res) {
     const {
-      firstname, lastname, othername, email, phoneNumber, passportUrl, isAdmin
+      firstname, lastname, othername, email, phoneNumber, passportUrl
     } = req.body;
     const id = signUsers[signUsers.length - 1].id + 1;
 
     const asignupRequest = {
-      id, firstname, lastname, othername, email, phoneNumber, passportUrl, isAdmin
+      id, firstname, lastname, othername, email, phoneNumber, passportUrl
     };
     const alreadyLogged = signUsers
       .find(searchValue => (searchValue.email.toLowerCase() === email.toLowerCase()));
