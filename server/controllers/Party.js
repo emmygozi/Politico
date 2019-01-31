@@ -65,7 +65,7 @@ class Party {
     if (!partyToBeRemoved) return res.status(404).json({ status: 404, error: 'The party requested does not exist' });
 
     parties.splice(partyToBeRemoved, 1);
-    res.status(200).json({ status: 200, data: [partyToBeRemoved] });
+    res.status(200).json({ status: 200, data: [{ message: 'Requested party sucessfully deleted' }] });
   }
 }
 
