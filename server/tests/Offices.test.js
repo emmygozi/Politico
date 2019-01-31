@@ -5,30 +5,17 @@ import app from '../app';
 chai.use(chaiHttp);
 const { expect } = chai;
 
-describe('POST API/V1/AUTH/SIGNUP /', () => {
-  let firstname,
-    lastname,
-    othername,
-    email,
-    phoneNumber,
-    passportUrl,
-    password,
-    confirmpass;
-
+describe('POST API/V1/OFFICES /', () => {
+  let type,
+    name;
   const exec = async () => {
     try {
       return await chai
         .request(app)
-        .post('/api/v1/auth/signup')
+        .post('/api/v1/offices')
         .send({
-          firstname,
-          lastname,
-          othername,
-          email,
-          phoneNumber,
-          passportUrl,
-          password,
-          confirmpass
+          type,
+          name
         });
     } catch (err) {
       throw err.message;
@@ -36,14 +23,8 @@ describe('POST API/V1/AUTH/SIGNUP /', () => {
   };
 
   beforeEach(() => {
-    firstname = 'Agoodname';
-    lastname = 'Alastname';
-    othername = 'Anothername';
-    phoneNumber = '1234567891';
-    passportUrl = 'http://someurl';
-    email = 'newmail@yahoo.com';
-    password = '1234567123';
-    confirmpass = '1234567123';
+    type = 'Agoodtype';
+    name = 'Aname Given';
   });
 
   it('should return a success status 201', async () => {

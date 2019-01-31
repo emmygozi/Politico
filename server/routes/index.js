@@ -1,6 +1,7 @@
 import express from 'express';
 import Users from '../controllers/Users';
 import Parties from '../controllers/Party';
+import Offices from '../controllers/Office';
 import validateUserId from '../middlewares/validateUserId';
 
 const router = express.Router();
@@ -12,5 +13,7 @@ router.patch('/parties/:id', validateUserId, Parties.editPartyName);
 router.delete('/parties/:id', validateUserId, Parties.removeAPoliticalParty);
 
 router.post('/auth/signup', Users.signup);
+
+router.post('/offices', Offices.createOffice);
 
 export default router;
