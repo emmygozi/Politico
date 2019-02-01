@@ -90,10 +90,10 @@ input:focus {
   background-color: rgb(17, 26, 37);
   background: repeating-linear-gradient(
     45deg,
-    #19323c,
-    #1d373f 10px,
-    #1d363f 10px,
-    #1d363f 20px
+    #22234c,
+    #22234c 10px,
+    #191a3d 10px,
+    #191a3d 20px
   );
 }
 .striped-background-child {
@@ -104,7 +104,7 @@ input:focus {
   color: white;
   transform: translate(-50%, -50%);
   -ms-transform: translate(-50%, -50%);
-  background-color: rgba(20, 21, 52, 0.3);
+  background-color: rgba(20, 21, 52, 0.7);
   padding: 15px;
   text-align: center;
 }
