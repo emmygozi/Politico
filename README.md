@@ -5,9 +5,11 @@ Politico enables citizens give their mandate to politicians running for differen
 
 **GH-PAGES IS HOSTED ON** : https://emmygozi.github.io/Politico/ui/
 
+### Pivotal Tracker Stories can be found at 
+https://www.pivotaltracker.com/projects/2239983
 
 ### API Endpoints
-My API can be found at : https://dry-journey-38911.herokuapp.com 
+My API can be found at :  https://dry-journey-38911.herokuapp.com 
 
 ### Key Application Features
 An admin should be able to:
