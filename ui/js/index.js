@@ -1,6 +1,9 @@
 let prevScrollpos = window.pageYOffset;
 window.onscroll = function() {
   let currentScrollPos = window.pageYOffset;
+  if (screen.width <= 720) {
+    document.getElementById("mynav-flex-container").style.top = "0";
+  }
   if (screen.width >= 720) {
     if (prevScrollpos < currentScrollPos) {
       document.getElementById("mynav-flex-container").style.display = "flex";

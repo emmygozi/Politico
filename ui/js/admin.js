@@ -1,51 +1,11 @@
-/* if (screen.width <= 720) {
-  document.getElementById("mynav-flex-container").style.display = "flex";
-  let topFlexCards = document.getElementsByClassName("top-flex-cards");
-  document.getElementById("side-bar").style.display = "none";
-  let reportTable = document.getElementById("report-table");
-  reportTable.style.marginTop = "-7rem";
-  reportTable.style.width = "58rem";
-
-  let navStyles = document.getElementsByClassName("nav-styles"),
-    i;
-
-  for (let i = 0; i < topFlexCards.length; i++) {
-    topFlexCards[i].style.display = "none";
-  }
-
-  for (let i = 0; i < navStyles.length - 1; i++) {
-    navStyles[i].style.display = "none";
-  }
-
-  let pushRight = document.getElementById("push-right").style;
-  pushRight.width = "100%";
-  pushRight.backgroundColor = "#141534";
-
-  let reg = document.getElementById("reg");
-  reg.innerHTML = "POLITICO";
-  reg.style.fontSize = "30px";
-  let ham = document.getElementById("ham");
-  ham.innerHTML = "<i class='fa fa-bars'>";
-  ham.style.display = "block";
-  ham.style.float = "right";
-  ham.style.fontSize = "30px";
-
-  let dropContainer = document.getElementById("drop-down-container");
-  ham.onclick = function() {
-    if (dropContainer.style.display == "block") {
-      dropContainer.style.display = "none";
-    } else {
-      dropContainer.style.display = "block";
-    }
-  };
-}
- */
 // code to be replaced by fetch
 let viewResult = document.getElementById("view-result");
 viewResult.onclick = function() {
   let topFlexCards = document.getElementsByClassName("top-flex-cards");
-  for (let i = 0; i < topFlexCards.length; i++) {
-    topFlexCards[i].style.display = "block";
+  if (screen.width > 720) {
+    for (let i = 0; i < topFlexCards.length; i++) {
+      topFlexCards[i].style.display = "block";
+    }
   }
 
   let reportTable = document.getElementById("report-table");
@@ -263,8 +223,10 @@ dViewOffice.onclick = function() {
 let dViewResult = document.getElementById("dview-result");
 dViewResult.onclick = function() {
   let topFlexCards = document.getElementsByClassName("top-flex-cards");
-  for (let i = 0; i < topFlexCards.length; i++) {
-    topFlexCards[i].style.display = "block";
+  if (screen.width > 720) {
+    for (let i = 0; i < topFlexCards.length; i++) {
+      topFlexCards[i].style.display = "block";
+    }
   }
 
   let reportTable = document.getElementById("report-table");
