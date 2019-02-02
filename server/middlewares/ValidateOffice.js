@@ -22,7 +22,7 @@ const validateOffice = (req, res, next) => {
       error: 'Name field cannot be empty or contain invalid entry'
     });
   }
-  if (validator.validateInputLength(name, 2, 70) === false) {
+  if (validator.validateInputLength(name, 3, 70) === false) {
     return res.status(400).send({
       status: 400,
       error: 'Name should have a minimum of 3 and maximum of 70 characters'
