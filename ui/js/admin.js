@@ -133,8 +133,8 @@ partyCreate.onclick = function() {
   let changeHtml = document.getElementById("change");
   changeHtml.style = "text-align: left;";
   changeHtml.innerHTML = `<form id='hide-political-party'>Party name: 
-    <input type='text' style='border-radius: 7px; height: 30px;'  placeholder='      party name' name='party'/>
-    <br><br>Logo URL: &nbsp;&nbsp;<input type='text' style='border-radius: 7px; height: 30px;' placeholder='      URL' name='party'/>
+    <input id='adjust-for-mobile2' type='text' style='border-radius: 7px; height: 30px;'  placeholder='      party name' name='party'/>
+    <br><br>Logo URL: &nbsp;&nbsp;<input id='adjust-for-mobile3' type='text' style='border-radius: 7px; height: 30px;' placeholder='      URL' name='party'/>
     <p>Headquaters address</p>
     <textarea id='adjust-for-mobile' name='message' rows='6' cols='80' placeholder='Enter party address' style='border-radius: 7px;'>
     </textarea><br><button type='submit' class='petbutton'>Create party</button></form>`;

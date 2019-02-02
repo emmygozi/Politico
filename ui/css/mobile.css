@@ -158,7 +158,15 @@
   }
 
   #adjust-for-mobile {
-    width: 48vh;
+    width: 45vh;
+  }
+
+  #adjust-for-mobile2 {
+ width: 11em;
+  }
+
+  #adjust-for-mobile3 {
+    width: 11em;
   }
 
   #remove-margin-here {
