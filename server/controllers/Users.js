@@ -43,7 +43,7 @@ class Users {
       rows[0].isAdmin
     );
 
-    res.status(201).json({ status: 201, data: [{ token, user: rows }] });
+    res.status(201).json({ status: 201, data: [{ token, user: rows[0] }] });
   }
 }
 
