@@ -11,14 +11,7 @@ const myDatabaseConfig = {
   port: process.env.DB_PORT,
 };
 
-let connectionString;
-
-if (process.env.NODE_ENV === 'production') {
-  connectionString = process.env.DATABASE_NAME;
-} else {
-  connectionString = myDatabaseConfig;
-}
-
-const pool = new Pool(connectionString);
+// optimize if else code with tenary shortcut
+const pool = (process.env.NODE_ENV === 'production') ? new Pool(process.env.DATABASE_NAME) : new Pool(myDatabaseConfig);
 
 export default pool;
