@@ -10,6 +10,7 @@
     "build": "babel ./server/ -d ./server/dist",
     "heroku-postbuild": "npm run build",
     "start:dev": "nodemon --exec babel-node ./server/app.js ",
+    "recreate:database": "babel-node ./server/db/runScript.js",
     "test": "set NODE_ENV=test&& nyc --reporter=html --reporter=text mocha --require @babel/register --require babel-polyfill --timeout 10000 ./server/tests/*.js --exit"
   },
   "dependencies": {
@@ -19,10 +20,14 @@
     "@babel/preset-env": "^7.3.1",
     "@babel/register": "^7.0.0",
     "babel-polyfill": "^6.26.0",
+    "bcryptjs": "^2.4.3",
     "body-parser": "^1.18.3",
+    "debug": "^4.1.1",
     "dotenv": "^6.2.0",
     "express": "^4.16.4",
+    "jsonwebtoken": "^8.4.0",
     "morgan": "^1.9.1",
+    "pg": "^7.8.0",
     "randomstring": "^1.1.5"
   },
   "devDependencies": {
