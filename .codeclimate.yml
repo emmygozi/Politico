@@ -12,6 +12,7 @@ checks:
 
 exclude_paths:
   - ".nyc_output/"
+  - "server/db"
   - "node_modules/"
   - "coverage/"
   - "ui/"

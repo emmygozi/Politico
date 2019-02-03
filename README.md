@@ -41,7 +41,7 @@ more info:
 (https://help.github.com/articles/cloning-a-repository/)
 - Run ``` yarn install/ npm install ``` to install the dependencies in the package.json file.
 
-- checkout to branch `git checkout  ch-heroku-host-163624294`
+- checkout to branch `git checkout  develop`
 - Start localhost  `yarn start:dev/ npm run start:dev`
 - According to specified endpoints, Make get/post/patch/delete request to http://localhost:8000/api/v1/
 

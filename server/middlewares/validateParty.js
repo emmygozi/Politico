@@ -40,10 +40,10 @@ const validateParty = (req, res, next) => {
       error: 'Headquaters address field cannot be empty or contain invalid entry'
     });
   }
-  if (validator.validateInputLength(hqAddress, 3, 70) === false) {
+  if (validator.validateInputLength(hqAddress, 3, 300) === false) {
     return res.status(400).send({
       status: 400,
-      error: 'Headquaters address should have a minimum of 3 and maximum of 70 characters'
+      error: 'Headquaters address should have a minimum of 3 and maximum of 300 characters'
     });
   }
   if (
@@ -57,10 +57,10 @@ const validateParty = (req, res, next) => {
       error: 'Logo URL field cannot be empty or contain invalid entry'
     });
   }
-  if (validator.validateInputLength(logoUrl, 3, 70) === false) {
+  if (validator.validateInputLength(logoUrl, 3, 100) === false) {
     return res.status(400).send({
       status: 400,
-      error: 'Logo URL should have a minimum of 3 and maximum of 70 characters'
+      error: 'Logo URL should have a minimum of 3 and maximum of 100 characters'
     });
   }
 
