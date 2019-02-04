@@ -42,6 +42,7 @@ more info:
 - Run ``` yarn install/ npm install ``` to install the dependencies in the package.json file.
 
 - checkout to branch `git checkout  develop`
+- Run `export DEBUG=app:startup` to view messages on console
 - Start localhost  `yarn start:dev/ npm run start:dev`
 - According to specified endpoints, Make get/post/patch/delete request to http://localhost:8000/api/v1/
 

@@ -7,35 +7,6 @@ chai.use(chaiHttp);
 const { expect } = chai;
 
 describe('POST API/V1/AUTH/SIGNUP /', () => {
-  it('should return conflict status 409', (done) => {
-    try {
-      chai.request(app)
-        .post('/api/v1/auth/signup')
-        .send({
-          firstname: 'Thorgan',
-          lastname: 'Hazard',
-          othername: 'Charles',
-          email: 'hazardcharles@chelsea.com',
-          phoneNumber: '01234567023',
-          passportUrl: 'http://mypassporturl',
-          password: '1234567',
-          confirmpass: '1234567'
-        })
-        .end((err, res) => {
-          expect(res.status).to.equal(409);
-          expect(res.body).to.be.an('object');
-          expect(res.body).to.have.property('status');
-          expect(res.body).to.have.property('error');
-          const returnStatus = 409;
-          expect(res.body).to.have.property('status', returnStatus);
-          done();
-        });
-    } catch (err) {
-      throw err.message;
-    }
-  });
-
-
   it('should return success status 201', (done) => {
     try {
       chai.request(app)
@@ -62,6 +33,35 @@ describe('POST API/V1/AUTH/SIGNUP /', () => {
       throw err.message;
     }
   });
+
+  it('should return conflict status 409', (done) => {
+    try {
+      chai.request(app)
+        .post('/api/v1/auth/signup')
+        .send({
+          firstname: 'Justine',
+          lastname: 'Bieber',
+          othername: 'Sanchez',
+          email: 'justsine@sn.com',
+          phoneNumber: '123456784',
+          passportUrl: 'http://someurl',
+          password: '1234567',
+          confirmpass: '1234567'
+        })
+        .end((err, res) => {
+          expect(res.status).to.equal(409);
+          expect(res.body).to.be.an('object');
+          expect(res.body).to.have.property('status');
+          expect(res.body).to.have.property('error');
+          const returnStatus = 409;
+          expect(res.body).to.have.property('status', returnStatus);
+          done();
+        });
+    } catch (err) {
+      throw err.message;
+    }
+  });
+
 
   it('should return a no additional field 400', (done) => {
     try {
