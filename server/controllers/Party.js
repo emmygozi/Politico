@@ -1,70 +1,77 @@
-import parties from '../models/party';
+import pool from '../db/config';
 
 class Party {
-  static getAll(req, res) {
-    res.status(200).json({ status: 200, data: [parties] });
+  static async getAll(req, res) {
+    const { rows } = await pool.query('SELECT * FROM parties ORDER BY id LIMIT 10');
+
+    res.status(200).json({ status: 200, data: rows });
   }
 
-  static editPartyName(req, res) {
-    const updatePartyName = parties.find(
-      aParty => aParty.id === parseInt(req.params.id, 10)
-    );
-    if (!updatePartyName) {
+  static async editPartyName(req, res) {
+    const { name } = req.body;
+    const { id } = req.params;
+
+    const { rows } = await pool.query(`UPDATE parties SET name = '${name}'
+    WHERE id = '${id}' RETURNING  id, name`);
+
+    if (rows.length === 0) {
       return res.status(404).json({
         status: 404,
         error: 'The party with the given ID was not found!'
       });
     }
 
-    updatePartyName.name = req.body.name;
 
-    const { id, name } = updatePartyName;
-
-    res.status(200).json({ status: 200, data: [{ id, name }] });
+    res.status(200).json({ status: 200, data: [rows[0]] });
   }
 
-  static createNewParty(req, res) {
+  static async createNewParty(req, res) {
     const { name, hqAddress, logoUrl } = req.body;
-    const id = parties[parties.length - 1].id + 1;
 
-    const aNewPartyRequest = {
-      id, name, hqAddress, logoUrl
+    const partyAlreadyRegistered = {
+      text: 'SELECT name from parties where name = $1',
+      values: [`${name}`],
+      rowMode: 'array',
     };
 
-    const alreadyCreatedParty = parties.find(
-      searchValue => searchValue.name.toLowerCase() === name.toLowerCase()
-    );
+    const alreadyCreatedParty = await pool.query(partyAlreadyRegistered);
 
-    if (alreadyCreatedParty) {
+    if (alreadyCreatedParty.rows[0] !== undefined) {
       return res.status(409).json({
         status: 409,
         error: `A party with '${name}' already exists`
       });
     }
-    parties.push(aNewPartyRequest);
+
+    const { rows } = await pool.query(`INSERT INTO parties (name, hqAddress, logoUrl)
+    VALUES ('${name}', '${hqAddress}', '${logoUrl}') RETURNING * `);
+
     res.status(201).json({
       status: 201,
-      data: [parties[parties.length - 1]]
+      data: [rows[0]]
     });
   }
 
-  static getOneParty(req, res) {
-    const specifiedParty = parties
-      .findIndex(searchValue => searchValue.id === parseInt(req.params.id, 10));
-    if (specifiedParty === -1) {
+  static async getOneParty(req, res) {
+    const { id } = req.params;
+
+    const { rows } = await pool.query(`SELECT * FROM parties WHERE id = '${id}'`);
+    if (rows.length === 0) {
       return res.status(404)
         .json({ status: 404, error: 'The party requested does not exist' });
     }
 
-    res.status(200).json({ status: 200, data: [parties[specifiedParty]] });
+    res.status(200).json({ status: 200, data: [rows[0]] });
   }
 
-  static removeAPoliticalParty(req, res) {
-    const partyToBeRemoved = parties
-      .find(searchValue => searchValue.id === parseInt(req.params.id, 10));
-    if (!partyToBeRemoved) return res.status(404).json({ status: 404, error: 'The party requested does not exist' });
+  static async removeAPoliticalParty(req, res) {
+    const { id } = req.params;
 
-    parties.splice(partyToBeRemoved, 1);
+    const { rows } = await pool.query(`DELETE FROM parties
+     WHERE id = '${id}' RETURNING *`);
+
+    if (rows.length === 0) return res.status(404).json({ status: 404, error: 'The party requested does not exist' });
+
     res.status(200).json({ status: 200, data: [{ message: 'Requested party sucessfully deleted' }] });
   }
 }

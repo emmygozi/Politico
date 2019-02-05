@@ -18,11 +18,9 @@ class Users {
       rowMode: 'array',
     };
 
-    const client = await pool.connect();
     const isAlreadyRegistered = await pool.query(emailSearchQuery);
 
     if (isAlreadyRegistered.rows.length > 0) {
-      client.release();
       return res.status(409).json({ status: 409, error: `A user with '${email}' is already registered` });
     }
 
@@ -35,7 +33,6 @@ class Users {
     , '${passportUrl}', '${hashedPassword}') RETURNING id, 
     firstname, lastname, othername, phoneNumber, passportUrl, email, isAdmin`);
 
-    client.release();
 
     const token = generateJwtToken(
       rows[0].id,
