@@ -44,7 +44,7 @@ class Users {
   }
 
   static async login(req, res) {
-    const { email, password,  } = req.body;
+    const { email, password } = req.body;
 
     const userExistOrNot = {
       text: 'SELECT id, email, password, isAdmin FROM users WHERE email=$1',
