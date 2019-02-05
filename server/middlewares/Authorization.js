@@ -6,14 +6,14 @@ dotenv.config();
 class Authorization {
   static authorize(req, res, next) {
     const token = req.header('x-auth-token');
-    if (!token) return res.status(401).json({ status: 401, message: 'Access denied!' });
+    if (!token) return res.status(401).json({ status: 401, error: 'Access denied!' });
 
     try {
       const aDecodedToken = JwtToken.verify(token, process.env.JWT_MY_SECRET);
       req.newDecodedUser = aDecodedToken;
       next();
     } catch (ex) {
-      res.status(400).json({ status: 400, message: 'Invalid login details!' });
+      res.status(400).json({ status: 400, error: 'Invalid login details!' });
     }
   }
 
@@ -22,7 +22,7 @@ class Authorization {
 
     if (isAnAdmin.isAdmin !== 'True') {
       return res.status(401)
-        .json({ status: 401, message: 'You do not have the permission to carry out this request' });
+        .json({ status: 401, error: 'You do not have the permission to carry out this request' });
     }
     return next();
   }

@@ -4,6 +4,7 @@ import Parties from '../controllers/Party';
 import Offices from '../controllers/Office';
 import { validatePartyId, validateOfficeId } from '../middlewares/validateUserId';
 import ValidatePostRequest from '../middlewares/ValidatePostRequest';
+import validateLogin from '../middlewares/validateLogin';
 import validateParty from '../middlewares/validateParty';
 import validateOffice from '../middlewares/ValidateOffice';
 import Authorization from '../middlewares/Authorization';
@@ -17,10 +18,10 @@ router.patch('/parties/:id', Authorization.authorize, Authorization.isAdmin, val
 router.delete('/parties/:id', Authorization.authorize, Authorization.isAdmin, validatePartyId, Parties.removeAPoliticalParty);
 
 router.post('/auth/signup', ValidatePostRequest.validateUserSignup, Users.signup);
-router.post('/auth/login', Users.login);
+router.post('/auth/login', validateLogin, Users.login);
 
 router.get('/offices', Offices.getAll);
 router.get('/offices/:id', validateOfficeId, Offices.getOneOffice);
-router.post('/offices', validateOffice, Offices.createOffice);
+router.post('/offices', Authorization.authorize, Authorization.isAdmin, validateOffice, Offices.createOffice);
 
 export default router;

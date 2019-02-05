@@ -47,6 +47,144 @@ describe('GET API/V1/PARTIES/:PARTY-ID', () => {
     }
   });
 
+  it('should return failure status 400', (done) => {
+    try {
+      chai.request(app)
+        .post('/api/v1/parties')
+        .set('x-auth-token', generateJwtToken(1, process.env.ADMIN_EMAIL, 'True'))
+        .send({
+          name: 'N',
+          logoUrl: 'http://someurl',
+          hqAddress: 'a given address here.'
+        })
+        .end((err, res) => {
+          expect(res.status).to.equal(400);
+          expect(res.body).to.be.an('object');
+          expect(res.body).to.have.property('status');
+          const returnStatus = 400;
+          expect(res.body).to.have.property('status', returnStatus);
+          done();
+        });
+    } catch (err) {
+      throw err.message;
+    }
+  });
+
+  it('should return failure status 400', (done) => {
+    try {
+      chai.request(app)
+        .post('/api/v1/parties')
+        .set('x-auth-token', generateJwtToken(1, process.env.ADMIN_EMAIL, 'True'))
+        .send({
+          name: '  ',
+          logoUrl: 'http://someurl',
+          hqAddress: 'a given address here.'
+        })
+        .end((err, res) => {
+          expect(res.status).to.equal(400);
+          expect(res.body).to.be.an('object');
+          expect(res.body).to.have.property('status');
+          const returnStatus = 400;
+          expect(res.body).to.have.property('status', returnStatus);
+          done();
+        });
+    } catch (err) {
+      throw err.message;
+    }
+  });
+
+  it('should return failure status 400', (done) => {
+    try {
+      chai.request(app)
+        .post('/api/v1/parties')
+        .set('x-auth-token', generateJwtToken(1, process.env.ADMIN_EMAIL, 'True'))
+        .send({
+          name: 'NPCH',
+          logoUrl: 'http://someurl',
+          hqAddress: '   '
+        })
+        .end((err, res) => {
+          expect(res.status).to.equal(400);
+          expect(res.body).to.be.an('object');
+          expect(res.body).to.have.property('status');
+          const returnStatus = 400;
+          expect(res.body).to.have.property('status', returnStatus);
+          done();
+        });
+    } catch (err) {
+      throw err.message;
+    }
+  });
+
+  it('should return failure status 400', (done) => {
+    try {
+      chai.request(app)
+        .post('/api/v1/parties')
+        .set('x-auth-token', generateJwtToken(1, process.env.ADMIN_EMAIL, 'True'))
+        .send({
+          name: 'NPVHG',
+          logoUrl: 'http://someurl',
+          hqAddress: 'a'
+        })
+        .end((err, res) => {
+          expect(res.status).to.equal(400);
+          expect(res.body).to.be.an('object');
+          expect(res.body).to.have.property('status');
+          const returnStatus = 400;
+          expect(res.body).to.have.property('status', returnStatus);
+          done();
+        });
+    } catch (err) {
+      throw err.message;
+    }
+  });
+
+  it('should return failure status 400', (done) => {
+    try {
+      chai.request(app)
+        .post('/api/v1/parties')
+        .set('x-auth-token', generateJwtToken(1, process.env.ADMIN_EMAIL, 'True'))
+        .send({
+          name: 'Nffff',
+          logoUrl: '     ',
+          hqAddress: 'a given address here.'
+        })
+        .end((err, res) => {
+          expect(res.status).to.equal(400);
+          expect(res.body).to.be.an('object');
+          expect(res.body).to.have.property('status');
+          const returnStatus = 400;
+          expect(res.body).to.have.property('status', returnStatus);
+          done();
+        });
+    } catch (err) {
+      throw err.message;
+    }
+  });
+
+  it('should return failure status 400', (done) => {
+    try {
+      chai.request(app)
+        .post('/api/v1/parties')
+        .set('x-auth-token', generateJwtToken(1, process.env.ADMIN_EMAIL, 'True'))
+        .send({
+          name: 'NPFDTYB',
+          logoUrl: 'h',
+          hqAddress: 'a given address here.'
+        })
+        .end((err, res) => {
+          expect(res.status).to.equal(400);
+          expect(res.body).to.be.an('object');
+          expect(res.body).to.have.property('status');
+          const returnStatus = 400;
+          expect(res.body).to.have.property('status', returnStatus);
+          done();
+        });
+    } catch (err) {
+      throw err.message;
+    }
+  });
+
   it('should return a success status 200', async () => {
     try {
       const res = await chai.request(app).get('/api/v1/parties/1');
@@ -104,6 +242,30 @@ describe('POST API/V1/PARTIES/', () => {
           expect(res.body).to.have.property('status');
           expect(res.body).to.have.property('error');
           const returnStatus = 409;
+          expect(res.body).to.have.property('status', returnStatus);
+          done();
+        });
+    } catch (err) {
+      throw err.message;
+    }
+  });
+
+  it('should return no admin permission status 401', (done) => {
+    try {
+      chai.request(app)
+        .post('/api/v1/parties')
+        .set('x-auth-token', generateJwtToken(1, process.env.ADMIN_EMAIL, 'False'))
+        .send({
+          name: 'NPC',
+          logoUrl: 'http://someurl',
+          hqAddress: 'a given address here.'
+        })
+        .end((err, res) => {
+          expect(res.status).to.equal(401);
+          expect(res.body).to.be.an('object');
+          expect(res.body).to.have.property('status');
+          expect(res.body).to.have.property('error');
+          const returnStatus = 401;
           expect(res.body).to.have.property('status', returnStatus);
           done();
         });

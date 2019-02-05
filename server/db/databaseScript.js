@@ -40,7 +40,8 @@ const dropAndCreateTablesScript = `
     FOREIGN KEY (office) REFERENCES office (id),
     FOREIGN KEY (party) REFERENCES parties (id),
     FOREIGN KEY (candidate) REFERENCES users (id),
-    UNIQUE (candidate)
+    PRIMARY KEY (id),
+    UNIQUE (candidate, id)
     ); 
   DROP TABLE IF EXISTS vote CASCADE;
    CREATE TABLE IF NOT EXISTS vote(
@@ -51,6 +52,7 @@ const dropAndCreateTablesScript = `
     createdOn timestamp without time zone NOT NULL DEFAULT now(),
     FOREIGN KEY (createdBy) REFERENCES users (id),
     FOREIGN KEY (office) REFERENCES office (id),
+    FOREIGN KEY (candidate) REFERENCES candidates (id),
     PRIMARY KEY (id),
     UNIQUE (id)
   ); 

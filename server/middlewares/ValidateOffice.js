@@ -5,12 +5,6 @@ const validateOffice = (req, res, next) => {
     name, type
   } = req.body;
 
-  if (Object.keys(req.body).length > 2) {
-    return res.status(400).send({
-      status: 400,
-      error: 'No additional field'
-    });
-  }
   if (
     name == null
     || name.length === 0

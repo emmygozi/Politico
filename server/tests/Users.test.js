@@ -513,6 +513,34 @@ describe('POST API/V1/AUTH/SIGNUP /', () => {
     }
   });
 
+  it('should return password min length is 3 status 400', (done) => {
+    try {
+      chai.request(app)
+        .post('/api/v1/auth/signup')
+        .send({
+          firstname: 'ydhhdhdhdd',
+          lastname: 'Alastname',
+          othername: 'Anothername',
+          email: 'somemail@yahoo.com',
+          phoneNumber: '123456712shs3',
+          passportUrl: 'http://qqqqqqqqqqqq',
+          password: 'a',
+          confirmpass: '1234567fhfjf'
+        })
+        .end((err, res) => {
+          expect(res.status).to.equal(400);
+          expect(res.body).to.be.an('object');
+          expect(res.body).to.have.property('status');
+          expect(res.body).to.have.property('error');
+          const returnStatus = 400;
+          expect(res.body).to.have.property('status', returnStatus);
+          done();
+        });
+    } catch (err) {
+      throw err.message;
+    }
+  });
+
   it('should return password not empty status 400', (done) => {
     try {
       chai.request(app)
@@ -568,6 +596,35 @@ describe('POST API/V1/AUTH/SIGNUP /', () => {
       throw err.message;
     }
   });
+
+  it('should return confirm password length is less than 3 status 400', (done) => {
+    try {
+      chai.request(app)
+        .post('/api/v1/auth/signup')
+        .send({
+          firstname: 'ydhhdhdhdd',
+          lastname: 'Alastname',
+          othername: 'Anothername',
+          email: 'somemail@yahoo.com',
+          phoneNumber: '123456712shs3',
+          passportUrl: 'http://qqqqqqqqqqqq',
+          password: '1234567fhfjf',
+          confirmpass: 'a'
+        })
+        .end((err, res) => {
+          expect(res.status).to.equal(400);
+          expect(res.body).to.be.an('object');
+          expect(res.body).to.have.property('status');
+          expect(res.body).to.have.property('error');
+          const returnStatus = 400;
+          expect(res.body).to.have.property('status', returnStatus);
+          done();
+        });
+    } catch (err) {
+      throw err.message;
+    }
+  });
+
 
   it('should return password and confirm password does not match status 400', (done) => {
     try {
@@ -653,6 +710,94 @@ describe('POST API/V1/AUTH/LOGIN /', () => {
           expect(res.status).to.equal(400);
           expect(res.body).to.be.an('object');
           expect(res.body).to.have.property('status');
+          const returnStatus = 400;
+          expect(res.body).to.have.property('status', returnStatus);
+          done();
+        });
+    } catch (err) {
+      throw err.message;
+    }
+  });
+
+  it('should return password not empty status 400', (done) => {
+    try {
+      chai.request(app)
+        .post('/api/v1/auth/login')
+        .send({
+          email: 'somemail@yahoo.com',
+          password: '',
+        })
+        .end((err, res) => {
+          expect(res.status).to.equal(400);
+          expect(res.body).to.be.an('object');
+          expect(res.body).to.have.property('status');
+          expect(res.body).to.have.property('error');
+          const returnStatus = 400;
+          expect(res.body).to.have.property('status', returnStatus);
+          done();
+        });
+    } catch (err) {
+      throw err.message;
+    }
+  });
+
+  it('should return min character of 3 status 400', (done) => {
+    try {
+      chai.request(app)
+        .post('/api/v1/auth/login')
+        .send({
+          email: 'somemail@yahoo.com',
+          password: 'a',
+        })
+        .end((err, res) => {
+          expect(res.status).to.equal(400);
+          expect(res.body).to.be.an('object');
+          expect(res.body).to.have.property('status');
+          expect(res.body).to.have.property('error');
+          const returnStatus = 400;
+          expect(res.body).to.have.property('status', returnStatus);
+          done();
+        });
+    } catch (err) {
+      throw err.message;
+    }
+  });
+
+  it('should return incorrect email format status 400', (done) => {
+    try {
+      chai.request(app)
+        .post('/api/v1/auth/login')
+        .send({
+          email: 'somemail@',
+          password: 'xxxxxxxxxxxxxxx',
+        })
+        .end((err, res) => {
+          expect(res.status).to.equal(400);
+          expect(res.body).to.be.an('object');
+          expect(res.body).to.have.property('status');
+          expect(res.body).to.have.property('error');
+          const returnStatus = 400;
+          expect(res.body).to.have.property('status', returnStatus);
+          done();
+        });
+    } catch (err) {
+      throw err.message;
+    }
+  });
+
+  it('should return email cannot be empty status 400', (done) => {
+    try {
+      chai.request(app)
+        .post('/api/v1/auth/login')
+        .send({
+          email: '',
+          password: 'xxxxxxxxxxx',
+        })
+        .end((err, res) => {
+          expect(res.status).to.equal(400);
+          expect(res.body).to.be.an('object');
+          expect(res.body).to.have.property('status');
+          expect(res.body).to.have.property('error');
           const returnStatus = 400;
           expect(res.body).to.have.property('status', returnStatus);
           done();

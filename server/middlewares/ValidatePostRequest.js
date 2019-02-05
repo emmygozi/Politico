@@ -140,7 +140,7 @@ class ValidatePostRequest {
         error: 'Password field must be provided'
       });
     }
-    if (confirmpass.length === 0 || typeof (firstname) === 'boolean' || confirmpass == null
+    if (confirmpass.length === 0 || typeof (confirmpass) === 'boolean' || confirmpass == null
       || validator.hasWhiteSpace(confirmpass)) {
       return res.status(400).send({
         status: 400,
