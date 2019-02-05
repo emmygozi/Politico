@@ -1,8 +1,10 @@
 import chai from 'chai';
 import chaiHttp from 'chai-http';
+import dotenv from 'dotenv';
 import randomString from 'randomstring';
 import app from '../app';
 
+dotenv.config();
 chai.use(chaiHttp);
 const { expect } = chai;
 
@@ -586,6 +588,71 @@ describe('POST API/V1/AUTH/SIGNUP /', () => {
           expect(res.body).to.be.an('object');
           expect(res.body).to.have.property('status');
           expect(res.body).to.have.property('error');
+          const returnStatus = 400;
+          expect(res.body).to.have.property('status', returnStatus);
+          done();
+        });
+    } catch (err) {
+      throw err.message;
+    }
+  });
+});
+
+describe('POST API/V1/AUTH/LOGIN /', () => {
+  it('should return success status 200', (done) => {
+    try {
+      chai.request(app)
+        .post('/api/v1/auth/login')
+        .send({
+          email: process.env.ADMIN_EMAIL,
+          password: process.env.ADMIN_PASSWORD
+        })
+        .end((err, res) => {
+          expect(res.status).to.equal(200);
+          expect(res.body).to.be.an('object');
+          expect(res.body).to.have.property('status');
+          const returnStatus = 200;
+          expect(res.body).to.have.property('status', returnStatus);
+          done();
+        });
+    } catch (err) {
+      throw err.message;
+    }
+  });
+
+  it('should return success status 400', (done) => {
+    try {
+      chai.request(app)
+        .post('/api/v1/auth/login')
+        .send({
+          email: process.env.ADMIN_EMAIL,
+          password: 'xxxxxxxxxxxxxx'
+        })
+        .end((err, res) => {
+          expect(res.status).to.equal(400);
+          expect(res.body).to.be.an('object');
+          expect(res.body).to.have.property('status');
+          const returnStatus = 400;
+          expect(res.body).to.have.property('status', returnStatus);
+          done();
+        });
+    } catch (err) {
+      throw err.message;
+    }
+  });
+
+  it('should return success status 400', (done) => {
+    try {
+      chai.request(app)
+        .post('/api/v1/auth/login')
+        .send({
+          email: process.env.ADMIN_EMAIL,
+          password: 'xxxxxxxxxxxxxx'
+        })
+        .end((err, res) => {
+          expect(res.status).to.equal(400);
+          expect(res.body).to.be.an('object');
+          expect(res.body).to.have.property('status');
           const returnStatus = 400;
           expect(res.body).to.have.property('status', returnStatus);
           done();

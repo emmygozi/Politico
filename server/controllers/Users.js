@@ -42,6 +42,34 @@ class Users {
 
     res.status(201).json({ status: 201, data: [{ token, user: rows[0] }] });
   }
+
+  static async login(req, res) {
+    const { email, password } = req.body;
+
+    const userExistOrNot = {
+      text: 'SELECT id, email, password, isAdmin FROM users WHERE email=$1',
+      values: [`${email}`],
+      rowMode: 'array',
+    };
+
+    const { rows } = await pool.query(userExistOrNot);
+
+    if (rows.length < 1) {
+      return res.status(400).json({ status: 400, error: 'Invalid email or password' });
+    }
+
+    const databasePassword = rows[0][2];
+
+    const isValidPassword = await bcryptJs.compare(password, databasePassword);
+    if (!isValidPassword) return res.status(400).json({ status: 400, error: 'Invalid email or password' });
+
+    const token = generateJwtToken(
+      rows[0][0], rows[0][1], rows[0][3]
+    );
+
+    res.status(200)
+      .json({ status: 200, data: [{ token, user: { id: rows[0][0], email: rows[0][1] } }] });
+  }
 }
 
 export default Users;
