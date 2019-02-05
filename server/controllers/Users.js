@@ -18,11 +18,9 @@ class Users {
       rowMode: 'array',
     };
 
-    const client = await pool.connect();
     const isAlreadyRegistered = await pool.query(emailSearchQuery);
 
     if (isAlreadyRegistered.rows.length > 0) {
-      client.release();
       return res.status(409).json({ status: 409, error: `A user with '${email}' is already registered` });
     }
 
@@ -35,7 +33,6 @@ class Users {
     , '${passportUrl}', '${hashedPassword}') RETURNING id, 
     firstname, lastname, othername, phoneNumber, passportUrl, email, isAdmin`);
 
-    client.release();
 
     const token = generateJwtToken(
       rows[0].id,
@@ -44,6 +41,34 @@ class Users {
     );
 
     res.status(201).json({ status: 201, data: [{ token, user: rows[0] }] });
+  }
+
+  static async login(req, res) {
+    const { email, password,  } = req.body;
+
+    const userExistOrNot = {
+      text: 'SELECT id, email, password, isAdmin FROM users WHERE email=$1',
+      values: [`${email}`],
+      rowMode: 'array',
+    };
+
+    const { rows } = await pool.query(userExistOrNot);
+
+    if (rows.length < 1) {
+      return res.status(400).json({ status: 400, error: 'Invalid email or password' });
+    }
+
+    const databasePassword = rows[0][2];
+
+    const isValidPassword = await bcryptJs.compare(password, databasePassword);
+    if (!isValidPassword) return res.status(400).json({ status: 400, error: 'Invalid email or password' });
+
+    const token = generateJwtToken(
+      rows[0][0], rows[0][1], rows[0][3]
+    );
+
+    res.status(200)
+      .json({ status: 200, data: [{ token, user: { id: rows[0][0], email: rows[0][1] } }] });
   }
 }
 
