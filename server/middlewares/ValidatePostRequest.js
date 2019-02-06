@@ -100,7 +100,7 @@ class ValidatePostRequest {
       });
     }
     // eslint-disable-next-line no-restricted-globals
-    if (isNaN(phoneNumber) || typeof (firstname) === 'boolean') {
+    if (isNaN(phoneNumber) || typeof (phoneNumber) === 'boolean') {
       return res.status(400).send({
         status: 400,
         error: 'Phone Number must be an integer'
