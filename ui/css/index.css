@@ -26,7 +26,6 @@ hr {
   direction: row;
   align-items: center;
   justify-content: center;
-  margin-top: -1.5em;
 }
 
 #flex-topic-container {
@@ -118,16 +117,15 @@ hr {
   position: fixed;
   top: 0;
   width: 100%;
-  display: none;
+  display: flex;
   background-color: white;
-  transition: top 0.3s;
   margin-left: -1em;
-  padding: 10px;
+  padding: 8px;
 }
 
 #mynavbar {
   background-color: #141534;
-  width: 66.4%;
+  width: 64.4%;
   padding-left: 5em;
   display: block;
 }
@@ -149,7 +147,7 @@ hr {
 }
 
 #middle-flex {
-  flex-basis: 55%;
+  flex-basis: 65%;
   background-color: #eeeeee;
 }
 
@@ -162,7 +160,8 @@ hr {
 }
 
 #push-right {
-  width: 31.6%;
+  width: 30.6%;
+  float: right;
   background-color: #bb1b23;
 }
 

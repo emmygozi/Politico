@@ -21,6 +21,10 @@
       #mynav-flex-container {
         display: flex;
       }
+      #make-active {
+        color: black;
+        background-color: #ddd;
+      }
     </style>
   </head>
   <body>
@@ -28,10 +32,11 @@
       <div id="mynavbar" class="nav-styles">
         <a href="index.html">Home</a> <a href="viewresult.html">View result</a>
         <a href="candidate.html">Become a candidate</a>
-        <a href="vote.html">Vote</a> <a href="petition.html">Petition result</a>
+        <a href="vote.html">Vote</a> <a id="make-active" href="petition.html">Petition result</a>
       </div>
       <div id="push-right" class="nav-styles">
-        <a id="pollogo" href="index.html">POLITICO</a> <a id="reg" href="#">Logout</a>
+        <a id="pollogo" href="index.html">POLITICO</a>
+        <a id="reg" href="#">Logout</a>
         <a id="ham" href="#"><i class="fa fa-bars"></i></a>
       </div>
     </div>
@@ -61,7 +66,8 @@
         <h2 id="signup-header">Petition vote outcome</h2>
         <div id="signup-input-case">
           <form style="text-align: left;">
-            <select style="width: 6rem; height: 1.8rem; border-radius: 5px;"
+            <select
+              style="width: 6rem; height: 1.8rem; border-radius: 5px; color: #848484;"
               ><option>Select office</option
               ><option value="1">Governor</option
               ><option value="2">Senate</option
@@ -70,7 +76,7 @@
               id="mytextarea"
               name="message"
               rows="10"
-              cols="35"
+              cols="30"
               placeholder="Enter petition details"
               style="border-radius: 7px;"
             ></textarea

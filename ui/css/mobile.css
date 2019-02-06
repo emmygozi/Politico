@@ -162,7 +162,7 @@
   }
 
   #adjust-for-mobile2 {
- width: 11em;
+    width: 11em;
   }
 
   #adjust-for-mobile3 {
@@ -175,5 +175,17 @@
 
   #reduce-text-size {
     width: 50vh;
+  }
+}
+@media screen and (max-width: 768px) {
+  #image-text {
+    width: 100%;
+  }
+  #mynavbar {
+    width: 62.4%;
+  }
+  table {
+    font-size: 25px;
+    margin-left: 7rem;
   }
 }
