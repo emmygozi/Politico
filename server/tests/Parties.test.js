@@ -48,6 +48,30 @@ describe('GET API/V1/PARTIES/:PARTY-ID', () => {
     }
   });
 
+  it('should return success status 201', (done) => {
+    try {
+      chai.request(app)
+        .post('/api/v1/parties')
+        .set('x-auth-token', generateJwtToken(1, process.env.ADMIN_EMAIL, 'True'))
+        .send({
+          name: 'NPCCC',
+          logoUrl: 'http://someurlllll',
+          hqAddress: 'a given address hereeee.'
+        })
+        .end((err, res) => {
+          expect(res.status).to.equal(201);
+          expect(res.body).to.be.an('object');
+          expect(res.body).to.have.property('status');
+          const returnStatus = 201;
+          expect(res.body).to.have.property('status', returnStatus);
+          done();
+        });
+    } catch (err) {
+      throw err.message;
+    }
+  });
+
+
   it('should return failure status 400', (done) => {
     try {
       chai.request(app)
@@ -320,7 +344,7 @@ describe('PATCH API/V1/PARTIES/:PARTY-ID', () => {
 describe('DELETE API/V1/PARTIES/:PARTY-ID', () => {
   it('should return a success status 200', async () => {
     try {
-      const res = await chai.request(app).delete('/api/v1/parties/1')
+      const res = await chai.request(app).delete('/api/v1/parties/2')
         .set('x-auth-token', generateJwtToken(1, process.env.ADMIN_EMAIL, 'True'));
       expect(res.status).to.equal(200);
       expect(res.body).to.be.an('object');

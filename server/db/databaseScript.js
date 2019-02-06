@@ -31,11 +31,14 @@ const dropAndCreateTablesScript = `
     dateadded timestamp without time zone NOT NULL DEFAULT now(),
     UNIQUE (id)
     ); 
+    DROP TYPE IF EXISTS anapproval CASCADE; 
+    CREATE TYPE anapproval AS ENUM ('Pending','Approved'); 
     DROP TABLE IF EXISTS candidates CASCADE; CREATE TABLE IF NOT EXISTS candidates (
     id SERIAL,
     office INTEGER NOT NULL,
     party INTEGER NOT NULL,
     candidate INTEGER NOT NULL,
+    status anapproval default 'Pending',
     dateadded timestamp without time zone NOT NULL DEFAULT now(),
     FOREIGN KEY (office) REFERENCES office (id),
     FOREIGN KEY (party) REFERENCES parties (id),

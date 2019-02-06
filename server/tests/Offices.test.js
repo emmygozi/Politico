@@ -29,8 +29,8 @@ describe('POST API/V1/OFFICES /', () => {
   };
 
   beforeEach(() => {
-    type = 'Agoodtype';
-    name = 'Aname Given';
+    type = 'Agoodtypett';
+    name = 'Aname Givenfiif';
   });
 
   it('should return a success status 201', async () => {
