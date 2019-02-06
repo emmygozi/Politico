@@ -10,7 +10,7 @@ describe('POST API/V1/AUTHORIZE /', () => {
   const name = 'Goodnames';
   const logoUrl = 'http://aaaaggddhhhhdhdj';
   const hqAddress = '16, somewhere in Abuja is found';
-  it('Acess denied!', async () => {
+  it(' Acess denied!', async () => {
     try {
       const res = await chai.request(app)
         .post('/api/v1/parties')

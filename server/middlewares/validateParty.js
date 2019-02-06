@@ -6,12 +6,6 @@ const validateParty = (req, res, next) => {
     name, hqAddress, logoUrl
   } = req.body;
 
-  if (Object.keys(req.body).length > 3) {
-    return res.status(400).send({
-      status: 400,
-      error: 'No additional field'
-    });
-  }
   if (
     name == null
     || name.length === 0
