@@ -16,6 +16,7 @@
     <link rel="stylesheet" type="text/css" href="css/index.css" />
     <link rel="stylesheet" type="text/css" href="css/signup.css" />
     <link rel="stylesheet" type="text/css" href="css/mobile.css" />
+    <link rel="stylesheet" type="text/css" href="css/mobiletwo.css" />
 
     <style type="text/css">
       #mynav-flex-container {
@@ -57,33 +58,37 @@
     </div>
 
     <div class="signup-flex-container">
-      <div id="signup-image-case" class="striped-background">
-        <div class="striped-background-child">
-          Write to electoral body to petition election result
+      <div id="signup-image-case-two" class="striped-background">
+        <div class="striped-background-child" id="arrangehome">
+            <h4 style="color: #EEEEEE">Petition</h4>
+            <form style="text-align: center;" id="arrange">
+                <p class="small-font-size" style="margin-top: -1.9em; color: black;">Office</p>
+                <select
+                  style="width: 12rem; height: 1.8rem; border-radius: 5px; color: #848484;"
+                  ><option>Select office</option
+                  ><option value="1">Governor</option
+                  ><option value="2">Senate</option
+                  ><option value="3">President</option></select
+                ><br />
+                <p class="small-font-size" style="margin-top: -1.9em; ">Petition</p>
+                <textarea
+                  id="mytextarea"
+                  name="message"
+                  rows="10"
+                  cols="30"
+                  placeholder="Enter petition details"
+                  style="border-radius: 7px;"
+                ></textarea
+                ><br /><button id="my-petion-button" type="submit" class="button">
+                  Submit
+                </button>
+              </form>
         </div>
       </div>
-      <div id="signup-case">
-        <h2 id="signup-header">Petition vote outcome</h2>
+      <div id="signup-case-two">
+        <h2 id="signup-header"> Write to electoral body to petition election result. Reporet violence, rigging or any type of electoral malpractice</h2>
         <div id="signup-input-case">
-          <form style="text-align: left;">
-            <select
-              style="width: 6rem; height: 1.8rem; border-radius: 5px; color: #848484;"
-              ><option>Select office</option
-              ><option value="1">Governor</option
-              ><option value="2">Senate</option
-              ><option value="3">President</option></select
-            ><br /><textarea
-              id="mytextarea"
-              name="message"
-              rows="10"
-              cols="30"
-              placeholder="Enter petition details"
-              style="border-radius: 7px;"
-            ></textarea
-            ><br /><button id="my-petion-button" type="submit" class="button">
-              Submit petition
-            </button>
-          </form>
+          
         </div>
       </div>
     </div>

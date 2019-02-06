@@ -107,6 +107,26 @@ input:focus {
   padding: 15px;
   text-align: center;
 }
+
+#signup-image-case-two {
+  width: 70%;
+}
+#signup-case-two {
+  width: 30%;
+}
+
+#arrangehome {
+  width: 30%;
+}
+
+#boldit {
+  width: 40%;
+}
+
+#boldittwo {
+  width: 40%;
+}
+
 @media screen and (max-width: 720px) {
   .signup-flex-container {
     height: 100vh;

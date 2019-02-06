@@ -42,6 +42,7 @@ body {
 
 #report-table {
   width: 98%;
+  margin-bottom: 15em;
   margin-left: 1%;
   border-radius: 1%;
   margin-top: 1em;
@@ -67,7 +68,7 @@ th {
 }
 
 #side-bar {
-  height: 100vh;
+  height: 58em;
   line-height: 4rem;
   font-size: medium;
   width: 15%;
@@ -189,4 +190,8 @@ a:hover {
 
 #remove-margin-here {
   margin-left: 9em;
+}
+
+.bolden {
+  width: 30%;
 }
