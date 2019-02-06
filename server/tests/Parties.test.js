@@ -299,7 +299,7 @@ describe('PATCH API/V1/PARTIES/:PARTY-ID', () => {
     try {
       return await chai
         .request(app)
-        .patch('/api/v1/parties/1')
+        .patch('/api/v1/parties/1/name')
         .set('x-auth-token', generateJwtToken(1, process.env.ADMIN_EMAIL, 'True'))
         .send({
           name
@@ -328,7 +328,7 @@ describe('PATCH API/V1/PARTIES/:PARTY-ID', () => {
 
   it('should return a not found status 404', async () => {
     try {
-      const res = await chai.request(app).patch('/api/v1/parties/5000')
+      const res = await chai.request(app).patch('/api/v1/parties/5000/name')
         .set('x-auth-token', generateJwtToken(1, process.env.ADMIN_EMAIL, 'True'));
       expect(res.status).to.equal(404);
       expect(res.body).to.be.an('object');
