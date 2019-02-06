@@ -24,6 +24,7 @@ describe('GET API/V1/PARTIES /', () => {
 });
 
 describe('GET API/V1/PARTIES/:PARTY-ID', () => {
+  const myReturnStatus = 400;
   it('should return success status 201', (done) => {
     try {
       chai.request(app)
@@ -61,8 +62,7 @@ describe('GET API/V1/PARTIES/:PARTY-ID', () => {
           expect(res.status).to.equal(400);
           expect(res.body).to.be.an('object');
           expect(res.body).to.have.property('status');
-          const returnStatus = 400;
-          expect(res.body).to.have.property('status', returnStatus);
+          expect(res.body).to.have.property('status', myReturnStatus);
           done();
         });
     } catch (err) {
@@ -84,8 +84,7 @@ describe('GET API/V1/PARTIES/:PARTY-ID', () => {
           expect(res.status).to.equal(400);
           expect(res.body).to.be.an('object');
           expect(res.body).to.have.property('status');
-          const returnStatus = 400;
-          expect(res.body).to.have.property('status', returnStatus);
+          expect(res.body).to.have.property('status', myReturnStatus);
           done();
         });
     } catch (err) {
@@ -107,8 +106,7 @@ describe('GET API/V1/PARTIES/:PARTY-ID', () => {
           expect(res.status).to.equal(400);
           expect(res.body).to.be.an('object');
           expect(res.body).to.have.property('status');
-          const returnStatus = 400;
-          expect(res.body).to.have.property('status', returnStatus);
+          expect(res.body).to.have.property('status', myReturnStatus);
           done();
         });
     } catch (err) {
@@ -130,8 +128,7 @@ describe('GET API/V1/PARTIES/:PARTY-ID', () => {
           expect(res.status).to.equal(400);
           expect(res.body).to.be.an('object');
           expect(res.body).to.have.property('status');
-          const returnStatus = 400;
-          expect(res.body).to.have.property('status', returnStatus);
+          expect(res.body).to.have.property('status', myReturnStatus);
           done();
         });
     } catch (err) {
@@ -153,8 +150,7 @@ describe('GET API/V1/PARTIES/:PARTY-ID', () => {
           expect(res.status).to.equal(400);
           expect(res.body).to.be.an('object');
           expect(res.body).to.have.property('status');
-          const returnStatus = 400;
-          expect(res.body).to.have.property('status', returnStatus);
+          expect(res.body).to.have.property('status', myReturnStatus);
           done();
         });
     } catch (err) {
@@ -176,8 +172,7 @@ describe('GET API/V1/PARTIES/:PARTY-ID', () => {
           expect(res.status).to.equal(400);
           expect(res.body).to.be.an('object');
           expect(res.body).to.have.property('status');
-          const returnStatus = 400;
-          expect(res.body).to.have.property('status', returnStatus);
+          expect(res.body).to.have.property('status', myReturnStatus);
           done();
         });
     } catch (err) {
@@ -217,8 +212,7 @@ describe('GET API/V1/PARTIES/:PARTY-ID', () => {
       expect(res.status).to.equal(400);
       expect(res.body).to.be.an('object');
       expect(res.body).to.have.property('status');
-      const returnStatus = 400;
-      expect(res.body).to.have.property('status', returnStatus);
+      expect(res.body).to.have.property('status', myReturnStatus);
     } catch (err) {
       throw err.message;
     }

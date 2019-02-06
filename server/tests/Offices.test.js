@@ -12,6 +12,7 @@ const { expect } = chai;
 describe('POST API/V1/OFFICES /', () => {
   let type,
     name;
+  const myReturnStatus = 400;
   const exec = async () => {
     try {
       return await chai
@@ -65,8 +66,7 @@ describe('POST API/V1/OFFICES /', () => {
       expect(res.status).to.equal(400);
       expect(res.body).to.be.an('object');
       expect(res.body).to.have.property('status');
-      const returnStatus = 400;
-      expect(res.body).to.have.property('status', returnStatus);
+      expect(res.body).to.have.property('status', myReturnStatus);
     } catch (err) {
       throw err.message;
     }
@@ -79,8 +79,7 @@ describe('POST API/V1/OFFICES /', () => {
       expect(res.status).to.equal(400);
       expect(res.body).to.be.an('object');
       expect(res.body).to.have.property('status');
-      const returnStatus = 400;
-      expect(res.body).to.have.property('status', returnStatus);
+      expect(res.body).to.have.property('status', myReturnStatus);
     } catch (err) {
       throw err.message;
     }
@@ -93,8 +92,7 @@ describe('POST API/V1/OFFICES /', () => {
       expect(res.status).to.equal(400);
       expect(res.body).to.be.an('object');
       expect(res.body).to.have.property('status');
-      const returnStatus = 400;
-      expect(res.body).to.have.property('status', returnStatus);
+      expect(res.body).to.have.property('status', myReturnStatus);
     } catch (err) {
       throw err.message;
     }
@@ -107,8 +105,7 @@ describe('POST API/V1/OFFICES /', () => {
       expect(res.status).to.equal(400);
       expect(res.body).to.be.an('object');
       expect(res.body).to.have.property('status');
-      const returnStatus = 400;
-      expect(res.body).to.have.property('status', returnStatus);
+      expect(res.body).to.have.property('status', myReturnStatus);
     } catch (err) {
       throw err.message;
     }
@@ -121,8 +118,7 @@ describe('POST API/V1/OFFICES /', () => {
       expect(res.status).to.equal(400);
       expect(res.body).to.be.an('object');
       expect(res.body).to.have.property('status');
-      const returnStatus = 400;
-      expect(res.body).to.have.property('status', returnStatus);
+      expect(res.body).to.have.property('status', myReturnStatus);
     } catch (err) {
       throw err.message;
     }
@@ -146,6 +142,7 @@ describe('GET API/V1/OFFICES /', () => {
 });
 
 describe('GET API/V1/OFFICES/:OFFICE-ID', () => {
+  const myReturnStatus = 400;
   it('should return a success status 200', async () => {
     try {
       const res = await chai.request(app).get('/api/v1/offices/1');
@@ -178,8 +175,7 @@ describe('GET API/V1/OFFICES/:OFFICE-ID', () => {
       expect(res.status).to.equal(400);
       expect(res.body).to.be.an('object');
       expect(res.body).to.have.property('status');
-      const returnStatus = 400;
-      expect(res.body).to.have.property('status', returnStatus);
+      expect(res.body).to.have.property('status', myReturnStatus);
     } catch (err) {
       throw err.message;
     }
