@@ -29,7 +29,7 @@ describe('POST API/V1/OFFICES /', () => {
   };
 
   beforeEach(() => {
-    type = 'Agoodtypett';
+    type = 'Local';
     name = 'Aname Givenfiif';
   });
 

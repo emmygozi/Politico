@@ -6,7 +6,7 @@
   "scripts": {
     "coverage": "nyc report --reporter=text-lcov | coveralls",
     "coveralls": "nyc --reporter=lcov --reporter=text-lcov npm test",
-    "start": "babel-node ./server/app.js",
+    "start": "npm run recreate:database && npm run create:admin && babel-node ./server/app.js",
     "build": "babel ./server/ -d ./server/dist",
     "heroku-postbuild": "npm run build",
     "start:dev": "nodemon --exec babel-node ./server/app.js ",
