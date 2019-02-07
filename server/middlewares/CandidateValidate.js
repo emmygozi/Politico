@@ -1,5 +1,6 @@
 /* eslint-disable no-restricted-globals */
 import pool from '../db/config';
+import validator from '../helpers/Validators';
 
 class CandidateValidate {
   static async noDuplication(req, res, next) {
@@ -34,9 +35,12 @@ class CandidateValidate {
       });
     }
 
-    if (isNaN(office) || typeof (office) === 'boolean'
-        || isNaN(party) || typeof (party) === 'boolean'
-        || isNaN(id) || typeof (id) === 'boolean') {
+    if (isNaN(office) || typeof (office) === 'boolean' || validator.hasWhiteSpace(office)
+        || office == null || (Number(office) !== parseInt(office, 10)) || Math.sign(office === -1)
+        || party == null || validator.hasWhiteSpace(party)
+        || (Number(party) !== parseInt(party, 10)) || Math.sign(party === -1)
+        || isNaN(party) || typeof (party) === 'boolean' || (Number(id) !== parseInt(id, 10)) || Math.sign(id === -1)
+        || isNaN(id) || typeof (id) === 'boolean' || id == null || validator.hasWhiteSpace(id)) {
       return res.status(400).send({
         status: 400,
         error: 'Input must be an integer'
