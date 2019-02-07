@@ -105,6 +105,28 @@ describe('POST API/V1/OFFICE/:ID/REGISTER', () => {
   it('should return failure status 400', (done) => {
     try {
       chai.request(app)
+        .post('/api/v1/office/-9t/register')
+        .set('x-auth-token', generateJwtToken(1, process.env.ADMIN_EMAIL, 'True'))
+        .send({
+          party: true,
+          office: 'office'
+        })
+        .end((err, res) => {
+          expect(res.status).to.equal(400);
+          expect(res.body).to.be.an('object');
+          expect(res.body).to.have.property('status');
+          expect(res.body).to.have.property('status', myReturnStatus);
+          done();
+        });
+    } catch (err) {
+      throw err.message;
+    }
+  });
+
+
+  it('should return failure status 400', (done) => {
+    try {
+      chai.request(app)
         .post('/api/v1/office/1/register')
         .set('x-auth-token', generateJwtToken(1, process.env.ADMIN_EMAIL, 'True'))
         .send({
@@ -162,6 +184,21 @@ describe('POST API/V1/OFFICE/:ID/REGISTER', () => {
           expect(res.body).to.have.property('status', myReturnStatusThree);
           done();
         });
+    } catch (err) {
+      throw err.message;
+    }
+  });
+});
+
+describe('GET API/V1/OFFICE/CANDIDATES', () => {
+  it('should return a success status 200', async () => {
+    try {
+      const res = await chai.request(app).get('/api/v1/office/candidates');
+      expect(res.status).to.equal(200);
+      expect(res.body).to.be.an('object');
+      expect(res.body).to.have.property('status');
+      const returnStatus = 200;
+      expect(res.body).to.have.property('status', returnStatus);
     } catch (err) {
       throw err.message;
     }
