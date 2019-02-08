@@ -2,23 +2,34 @@ import validator from '../helpers/Validators';
 
 class ValidatePostRequest {
   static validateUserSignup(req, res, next) {
-    const {
+    let {
       firstname,
       lastname,
       othername,
       email,
-      phoneNumber,
       passportUrl,
       password,
       confirmpass
     } = req.body;
 
-    if (Object.keys(req.body).length > 8) {
+    const { phoneNumber } = req.body;
+
+    if (Object.keys(req.body).length > 8 || Object.keys(req.body).length < 8) {
       return res.status(400).send({
         status: 400,
-        error: 'No additional field allowed'
+        error: 'Eight fields are required'
       });
     }
+
+
+    firstname = firstname.trim();
+    lastname = lastname.trim();
+    othername = othername.trim();
+    email = email.trim();
+    passportUrl = passportUrl.trim();
+    password = password.trim();
+    confirmpass = confirmpass.trim();
+
 
     if (
       firstname == null
@@ -160,6 +171,14 @@ class ValidatePostRequest {
         error: 'Passwords mismatch'
       });
     }
+
+    req.body.firstname = firstname;
+    req.body.lastname = lastname;
+    req.body.othername = othername;
+    req.body.email = email;
+    req.body.passportUrl = passportUrl;
+    req.body.password = password;
+    req.body.confirmpass = confirmpass;
     next();
   }
 }

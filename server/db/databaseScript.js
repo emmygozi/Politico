@@ -36,7 +36,7 @@ const dropAndCreateTablesScript = `
     DROP TABLE IF EXISTS candidates CASCADE; CREATE TABLE IF NOT EXISTS candidates (
     id SERIAL,
     office INTEGER NOT NULL,
-    party INTEGER NOT NULL,
+    party INTEGER NOT NULL REFERENCES parties ON DELETE CASCADE ON UPDATE CASCADE,
     candidate INTEGER NOT NULL,
     status anapproval default 'Pending',
     dateadded timestamp without time zone NOT NULL DEFAULT now(),

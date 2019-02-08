@@ -100,6 +100,28 @@ describe('GET API/V1/PARTIES/:PARTY-ID', () => {
         .post('/api/v1/parties')
         .set('x-auth-token', generateJwtToken(1, process.env.ADMIN_EMAIL, 'True'))
         .send({
+          logoUrl: 'http://someurl',
+          hqAddress: 'a given address here.'
+        })
+        .end((err, res) => {
+          expect(res.status).to.equal(400);
+          expect(res.body).to.be.an('object');
+          expect(res.body).to.have.property('status');
+          expect(res.body).to.have.property('status', myReturnStatus);
+          done();
+        });
+    } catch (err) {
+      throw err.message;
+    }
+  });
+
+
+  it('should return failure status 400', (done) => {
+    try {
+      chai.request(app)
+        .post('/api/v1/parties')
+        .set('x-auth-token', generateJwtToken(1, process.env.ADMIN_EMAIL, 'True'))
+        .send({
           name: '  ',
           logoUrl: 'http://someurl',
           hqAddress: 'a given address here.'
@@ -127,10 +149,9 @@ describe('GET API/V1/PARTIES/:PARTY-ID', () => {
           hqAddress: '   '
         })
         .end((err, res) => {
-          expect(res.status).to.equal(400);
+          expect(res.status).to.equal(201);
           expect(res.body).to.be.an('object');
           expect(res.body).to.have.property('status');
-          expect(res.body).to.have.property('status', myReturnStatus);
           done();
         });
     } catch (err) {
@@ -149,10 +170,9 @@ describe('GET API/V1/PARTIES/:PARTY-ID', () => {
           hqAddress: 'a'
         })
         .end((err, res) => {
-          expect(res.status).to.equal(400);
+          expect(res.status).to.equal(201);
           expect(res.body).to.be.an('object');
           expect(res.body).to.have.property('status');
-          expect(res.body).to.have.property('status', myReturnStatus);
           done();
         });
     } catch (err) {
@@ -325,20 +345,6 @@ describe('PATCH API/V1/PARTIES/:PARTY-ID', () => {
       throw err.message;
     }
   });
-
-  it('should return a not found status 404', async () => {
-    try {
-      const res = await chai.request(app).patch('/api/v1/parties/5000/name')
-        .set('x-auth-token', generateJwtToken(1, process.env.ADMIN_EMAIL, 'True'));
-      expect(res.status).to.equal(404);
-      expect(res.body).to.be.an('object');
-      expect(res.body).to.have.property('status');
-      const returnStatus = 404;
-      expect(res.body).to.have.property('status', returnStatus);
-    } catch (err) {
-      throw err.message;
-    }
-  });
 });
 
 describe('DELETE API/V1/PARTIES/:PARTY-ID', () => {
@@ -351,6 +357,8 @@ describe('DELETE API/V1/PARTIES/:PARTY-ID', () => {
       expect(res.body).to.have.property('status');
       const returnStatus = 200;
       expect(res.body).to.have.property('status', returnStatus);
+      expect(res.body).to.have.property('data');
+      expect(res.body.data).to.be.an('array');
     } catch (err) {
       throw err.message;
     }

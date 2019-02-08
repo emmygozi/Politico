@@ -651,6 +651,7 @@ describe('POST API/V1/AUTH/LOGIN /', () => {
           expect(res.body).to.have.property('status');
           const returnStatus = 200;
           expect(res.body).to.have.property('status', returnStatus);
+          expect(res.body).to.have.property('data');
           done();
         });
     } catch (err) {
@@ -678,6 +679,25 @@ describe('POST API/V1/AUTH/LOGIN /', () => {
     }
   });
 
+  it('should return failure status 400', (done) => {
+    try {
+      chai.request(app)
+        .post('/api/v1/auth/login')
+        .send({
+          email: process.env.ADMIN_EMAIL
+        })
+        .end((err, res) => {
+          expect(res.status).to.equal(400);
+          expect(res.body).to.be.an('object');
+          expect(res.body).to.have.property('status');
+          expect(res.body).to.have.property('status', myReturnStatus);
+          done();
+        });
+    } catch (err) {
+      throw err.message;
+    }
+  });
+
   it('should return success status 400', (done) => {
     try {
       chai.request(app)
@@ -691,6 +711,7 @@ describe('POST API/V1/AUTH/LOGIN /', () => {
           expect(res.body).to.be.an('object');
           expect(res.body).to.have.property('status');
           expect(res.body).to.have.property('status', myReturnStatus);
+          expect(res.body).to.have.property('error', 'Invalid email or password');
           done();
         });
     } catch (err) {

@@ -20,6 +20,7 @@ describe('POST API/V1/AUTHORIZE /', () => {
         });
       expect(res.status).to.equal(400);
       expect(res.body).to.be.an('object');
+      expect(res.body).to.have.property('error', 'Invalid login details!');
     } catch (err) {
       throw err.message;
     }
@@ -35,6 +36,7 @@ describe('POST API/V1/AUTHORIZE /', () => {
         });
       expect(res.status).to.equal(401);
       expect(res.body).to.be.an('object');
+      expect(res.body).to.have.property('error', 'Access denied!');
     } catch (err) {
       throw err.message;
     }
