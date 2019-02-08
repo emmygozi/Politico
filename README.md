@@ -218,6 +218,64 @@ more info:
     }
       </td>
     </tr>
+      <tr>
+    <td>POST /candidate for election</td>
+    <td>/api/v1/office/:id/register/</td>
+    <td>Admin registers a candidate to be elected</td>
+    <td>{
+      "status": 201,
+      "data": [
+          {     office: Integer
+                party: Integer
+          }
+      ]
+  }</td>
+  </tr>
+  <tr>
+    <td>POST /users can vote</td>
+    <td>/api/v1/votes/</td>
+    <td>Users cast their vote for one candidate per office</td>
+    <td>{
+      "status": 201,
+      "data": [
+          {     id,
+                office,
+                candidate,
+                vote
+          }
+      ]
+  }</td>
+  </tr>
+  <tr>
+    <td>GET /users can view result collation</td>
+    <td>/api/v1/office/:id/result/</td>
+    <td>Users view result collation</td>
+    <td>{
+      "status": 200,
+      "data": [
+          {     id,
+                office,
+                candidate,
+                results
+          }
+      ]
+  }</td>
+  </tr>
+  tr>
+    <td>GET /users can view all flagbearers and their offices</td>
+    <td>/api/v1/office/candidates/</td>
+    <td>Users view party flagbearers</td>
+    <td>{
+      "status": 200,
+      "data": [
+          {     id,
+                office,
+                candidate,
+                party
+          }
+      ]
+  }</td>
+  </tr>
 </table>
 
 ### Technologies Used
