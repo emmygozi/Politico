@@ -12,6 +12,6 @@ const myDatabaseConfig = {
 };
 
 // optimize if else code with tenary shortcut
-const pool = (process.env.NODE_ENV === 'production') ? new Pool(process.env.DATABASE_NAME) : new Pool(myDatabaseConfig);
+const pool = (process.env.NODE_ENV === 'production') ? new Pool(process.env.DATABASE_URL) : new Pool(myDatabaseConfig);
 
 export default pool;

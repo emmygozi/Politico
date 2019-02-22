@@ -1,9 +1,19 @@
 import validator from '../helpers/Validators';
 
 const validateOffice = (req, res, next) => {
-  const {
+  let {
     name, type
   } = req.body;
+
+  if (Object.keys(req.body).length > 2 || Object.keys(req.body).length < 2) {
+    return res.status(400).send({
+      status: 400,
+      error: 'Two fields are required'
+    });
+  }
+
+  name = name.trim();
+  type = type.trim();
 
   if (
     name == null
@@ -39,6 +49,18 @@ const validateOffice = (req, res, next) => {
       error: 'Office type address should have a minimum of 3 and maximum of 70 characters'
     });
   }
+
+  if (type === 'Federal' || type === 'State' || type === 'Legislative' || type === 'Local') {
+    // eslint-disable-next-line no-unused-vars
+    const myValue = true;
+  } else {
+    return res.status(400).send({
+      status: 400,
+      error: 'Must be of type; Federal, State, Legislative or Local'
+    });
+  }
+  req.body.name = name;
+  req.body.type = type;
 
   next();
 };

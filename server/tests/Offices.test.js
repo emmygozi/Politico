@@ -29,7 +29,7 @@ describe('POST API/V1/OFFICES /', () => {
   };
 
   beforeEach(() => {
-    type = 'Agoodtypett';
+    type = 'Local';
     name = 'Aname Givenfiif';
   });
 
@@ -101,6 +101,34 @@ describe('POST API/V1/OFFICES /', () => {
   it('should return min 3 characters space 400', async () => {
     try {
       type = 'a';
+      const res = await exec();
+      expect(res.status).to.equal(400);
+      expect(res.body).to.be.an('object');
+      expect(res.body).to.have.property('status');
+      expect(res.body).to.have.property('status', myReturnStatus);
+    } catch (err) {
+      throw err.message;
+    }
+  });
+
+  it('should return object equal  400', async () => {
+    try {
+      const res = chai
+        .request(app)
+        .post('/api/v1/offices')
+        .set('x-auth-token', generateJwtToken(1, process.env.ADMIN_EMAIL, 'True'))
+        .send({
+          type: 'djjjjjjjjjdd'
+        });
+      expect(res.status).to.equal(undefined);
+    } catch (err) {
+      throw err.message;
+    }
+  });
+
+  it('should return input predefined type space 400', async () => {
+    try {
+      type = 'aTypehere';
       const res = await exec();
       expect(res.status).to.equal(400);
       expect(res.body).to.be.an('object');

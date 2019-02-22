@@ -66,7 +66,7 @@ describe('POST API/V1/OFFICE/:ID/REGISTER', () => {
         .set('x-auth-token', generateJwtToken(1, process.env.ADMIN_EMAIL, 'True'))
         .send({
           name: 'NPCXYEJEMKDK8',
-          type: 'AGovernor type'
+          type: 'Local'
         })
         .end((err, res) => {
           expect(res.status).to.equal(201);
@@ -74,27 +74,6 @@ describe('POST API/V1/OFFICE/:ID/REGISTER', () => {
           expect(res.body).to.have.property('status');
           const returnStatus = 201;
           expect(res.body).to.have.property('status', returnStatus);
-          done();
-        });
-    } catch (err) {
-      throw err.message;
-    }
-  });
-
-  it('should return failure status 401', (done) => {
-    try {
-      chai.request(app)
-        .post('/api/v1/office/900/register')
-        .set('x-auth-token', generateJwtToken(1, process.env.ADMIN_EMAIL, 'True'))
-        .send({
-          party: true,
-          office: 'office'
-        })
-        .end((err, res) => {
-          expect(res.status).to.equal(401);
-          expect(res.body).to.be.an('object');
-          expect(res.body).to.have.property('status');
-          expect(res.body).to.have.property('status', myReturnStatusTwo);
           done();
         });
     } catch (err) {

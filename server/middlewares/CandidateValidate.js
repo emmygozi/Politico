@@ -26,14 +26,6 @@ class CandidateValidate {
 
     const { id } = req.params;
 
-    // make sure valid user id is passed
-    // eslint-disable-next-line eqeqeq
-    if (id != req.newDecodedUser.id) {
-      return res.status(401).json({
-        status: 401,
-        error: 'Unauthorized user!'
-      });
-    }
 
     if (isNaN(office) || typeof (office) === 'boolean' || validator.hasWhiteSpace(office)
         || office == null || (Number(office) !== parseInt(office, 10)) || Math.sign(office === -1)
