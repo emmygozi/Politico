@@ -823,6 +823,7 @@ describe('POST API/V1/AUTH/RESET /', () => {
           const returnStatus = 200;
           const { token } = res.body.data[0];
           aToken = token;
+          console.log(aToken);
           expect(res.body).to.have.property('status', returnStatus);
           done();
         });
@@ -851,26 +852,6 @@ describe('POST API/V1/AUTH/RESET /', () => {
     }
   });
 
-
-  it('should return a no additional field 400', (done) => {
-    try {
-      chai.request(app)
-        .post('/api/v1/auth/reset')
-        .send({
-          email: 'somemail@yahoo.com',
-          anotherfield: 'newvalue'
-        })
-        .end((err, res) => {
-          expect(res.status).to.equal(400);
-          expect(res.body).to.be.an('object');
-          expect(res.body).to.have.property('status');
-          expect(res.body).to.have.property('status', myReturnStatus);
-          done();
-        });
-    } catch (err) {
-      throw err.message;
-    }
-  });
 
   it('should return a no boolean 400', (done) => {
     try {
@@ -959,8 +940,96 @@ describe('POST API/V1/AUTH/RESET /', () => {
         .post('/api/v1/auth/resetcomplete')
         .send({
           email: 'justsine@sn.com',
-          token: '',
+          token: 'aaaaa',
           resetpassword: 'IhaveReset123'
+        })
+        .end((err, res) => {
+          expect(res.status).to.equal(400);
+          expect(res.body).to.be.an('object');
+          expect(res.body).to.have.property('status');
+          expect(res.body).to.have.property('error');
+          expect(res.body).to.have.property('status', myReturnStatus);
+          done();
+        });
+    } catch (err) {
+      throw err.message;
+    }
+  });
+
+  it('should return token cannot contain whitespace 400', (done) => {
+    try {
+      chai.request(app)
+        .post('/api/v1/auth/resetcomplete')
+        .send({
+          email: 'justsine@sn.com',
+          token: '     ',
+          resetpassword: 'IhaveReset123'
+        })
+        .end((err, res) => {
+          expect(res.status).to.equal(400);
+          expect(res.body).to.be.an('object');
+          expect(res.body).to.have.property('status');
+          expect(res.body).to.have.property('error');
+          expect(res.body).to.have.property('status', myReturnStatus);
+          done();
+        });
+    } catch (err) {
+      throw err.message;
+    }
+  });
+
+  it('should return wrong email format 400', (done) => {
+    try {
+      chai.request(app)
+        .post('/api/v1/auth/resetcomplete')
+        .send({
+          email: 'justsine@s',
+          token: aToken,
+          resetpassword: 'IhaveReset123'
+        })
+        .end((err, res) => {
+          expect(res.status).to.equal(400);
+          expect(res.body).to.be.an('object');
+          expect(res.body).to.have.property('status');
+          expect(res.body).to.have.property('error');
+          expect(res.body).to.have.property('status', myReturnStatus);
+          done();
+        });
+    } catch (err) {
+      throw err.message;
+    }
+  });
+
+  it('should return email length must not be zero 400', (done) => {
+    try {
+      chai.request(app)
+        .post('/api/v1/auth/resetcomplete')
+        .send({
+          email: '',
+          token: aToken,
+          resetpassword: 'IhaveReset123'
+        })
+        .end((err, res) => {
+          expect(res.status).to.equal(400);
+          expect(res.body).to.be.an('object');
+          expect(res.body).to.have.property('status');
+          expect(res.body).to.have.property('error');
+          expect(res.body).to.have.property('status', myReturnStatus);
+          done();
+        });
+    } catch (err) {
+      throw err.message;
+    }
+  });
+
+  it('should return reset password cannot contain whotespace  400', (done) => {
+    try {
+      chai.request(app)
+        .post('/api/v1/auth/resetcomplete')
+        .send({
+          email: 'justsine@sn.com',
+          token: aToken,
+          resetpassword: '      '
         })
         .end((err, res) => {
           expect(res.status).to.equal(400);

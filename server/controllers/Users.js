@@ -111,6 +111,7 @@ class Users {
     (resetuserid, resettoken, validUntil) 
     VALUES ('${foundId}', '${token}', to_timestamp('${validTenMinutes}') )`);
 
+
     const subject = 'Password Reset Notice!';
     const html = `You are recieving this because a request was made 
 to change your password. Copy <strong><b>${token}<b></strong> and paste on politico
@@ -160,6 +161,7 @@ to change password. Ignore if you did not authorize this request.`;
       return res.status(404).json({ status: 404, error: 'email not found' });
     }
 
+    mydebugger(token);
     const resetUserId = rows[0][0];
     const expiresNow = new Date() / 1000;
     const tokenReset = token;
