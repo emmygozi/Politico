@@ -803,3 +803,244 @@ describe('POST API/V1/AUTH/LOGIN /', () => {
     }
   });
 });
+
+
+describe('POST API/V1/AUTH/RESET /', () => {
+  const myReturnStatus = 400;
+  const notFound = 404;
+  let aToken;
+  it('should return success status 200', (done) => {
+    try {
+      chai.request(app)
+        .post('/api/v1/auth/reset')
+        .send({
+          email: 'justsine@sn.com',
+        })
+        .end((err, res) => {
+          expect(res.status).to.equal(200);
+          expect(res.body).to.be.an('object');
+          expect(res.body).to.have.property('status');
+          const returnStatus = 200;
+          const { token } = res.body.data[0];
+          aToken = token;
+          console.log(aToken);
+          expect(res.body).to.have.property('status', returnStatus);
+          done();
+        });
+    } catch (err) {
+      throw err.message;
+    }
+  });
+
+  it('should return email not found 404', (done) => {
+    try {
+      chai.request(app)
+        .post('/api/v1/auth/reset')
+        .send({
+          email: 'justsnt96t496bwwd356788nx8nc8n087yvn74n07y17y473y7y372eerine@sn.com',
+        })
+        .end((err, res) => {
+          expect(res.status).to.equal(404);
+          expect(res.body).to.be.an('object');
+          expect(res.body).to.have.property('status');
+          expect(res.body).to.have.property('error');
+          expect(res.body).to.have.property('status', notFound);
+          done();
+        });
+    } catch (err) {
+      throw err.message;
+    }
+  });
+
+
+  it('should return a no boolean 400', (done) => {
+    try {
+      chai.request(app)
+        .post('/api/v1/auth/reset')
+        .send({
+        })
+        .end((err, res) => {
+          expect(res.status).to.equal(400);
+          expect(res.body).to.be.an('object');
+          expect(res.body).to.have.property('status');
+          expect(res.body).to.have.property('status', myReturnStatus);
+          done();
+        });
+    } catch (err) {
+      throw err.message;
+    }
+  });
+
+  it('should return a wrong email format 400', (done) => {
+    try {
+      chai.request(app)
+        .post('/api/v1/auth/reset')
+        .send({
+          email: 'somemail@yahoo',
+        })
+        .end((err, res) => {
+          expect(res.status).to.equal(400);
+          expect(res.body).to.be.an('object');
+          expect(res.body).to.have.property('status');
+          expect(res.body).to.have.property('status', myReturnStatus);
+          done();
+        });
+    } catch (err) {
+      throw err.message;
+    }
+  });
+
+  it('should return success status 200', (done) => {
+    try {
+      chai.request(app)
+        .post('/api/v1/auth/resetcomplete')
+        .send({
+          email: 'justsine@sn.com',
+          resetpassword: 'IhaveReset123',
+          token: aToken
+        })
+        .end((err, res) => {
+          expect(res.status).to.equal(200);
+          expect(res.body).to.be.an('object');
+          expect(res.body).to.have.property('status');
+          const returnStatus = 200;
+          expect(res.body).to.have.property('status', returnStatus);
+          done();
+        });
+    } catch (err) {
+      throw err.message;
+    }
+  });
+
+  it('should return email not found 404', (done) => {
+    try {
+      chai.request(app)
+        .post('/api/v1/auth/resetcomplete')
+        .send({
+          email: 'justsnt96t496bwwd356788nx8nc8n087yvn74n07y17y473y7y372eerine@sn.com',
+          token: aToken,
+          resetpassword: 'IhaveReset123'
+        })
+        .end((err, res) => {
+          expect(res.status).to.equal(404);
+          expect(res.body).to.be.an('object');
+          expect(res.body).to.have.property('status');
+          expect(res.body).to.have.property('error');
+          expect(res.body).to.have.property('status', notFound);
+          done();
+        });
+    } catch (err) {
+      throw err.message;
+    }
+  });
+
+  it('should return token not found 400', (done) => {
+    try {
+      chai.request(app)
+        .post('/api/v1/auth/resetcomplete')
+        .send({
+          email: 'justsine@sn.com',
+          token: 'aaaaa',
+          resetpassword: 'IhaveReset123'
+        })
+        .end((err, res) => {
+          expect(res.status).to.equal(400);
+          expect(res.body).to.be.an('object');
+          expect(res.body).to.have.property('status');
+          expect(res.body).to.have.property('error');
+          expect(res.body).to.have.property('status', myReturnStatus);
+          done();
+        });
+    } catch (err) {
+      throw err.message;
+    }
+  });
+
+  it('should return token cannot contain whitespace 400', (done) => {
+    try {
+      chai.request(app)
+        .post('/api/v1/auth/resetcomplete')
+        .send({
+          email: 'justsine@sn.com',
+          token: '     ',
+          resetpassword: 'IhaveReset123'
+        })
+        .end((err, res) => {
+          expect(res.status).to.equal(400);
+          expect(res.body).to.be.an('object');
+          expect(res.body).to.have.property('status');
+          expect(res.body).to.have.property('error');
+          expect(res.body).to.have.property('status', myReturnStatus);
+          done();
+        });
+    } catch (err) {
+      throw err.message;
+    }
+  });
+
+  it('should return wrong email format 400', (done) => {
+    try {
+      chai.request(app)
+        .post('/api/v1/auth/resetcomplete')
+        .send({
+          email: 'justsine@s',
+          token: aToken,
+          resetpassword: 'IhaveReset123'
+        })
+        .end((err, res) => {
+          expect(res.status).to.equal(400);
+          expect(res.body).to.be.an('object');
+          expect(res.body).to.have.property('status');
+          expect(res.body).to.have.property('error');
+          expect(res.body).to.have.property('status', myReturnStatus);
+          done();
+        });
+    } catch (err) {
+      throw err.message;
+    }
+  });
+
+  it('should return email length must not be zero 400', (done) => {
+    try {
+      chai.request(app)
+        .post('/api/v1/auth/resetcomplete')
+        .send({
+          email: '',
+          token: aToken,
+          resetpassword: 'IhaveReset123'
+        })
+        .end((err, res) => {
+          expect(res.status).to.equal(400);
+          expect(res.body).to.be.an('object');
+          expect(res.body).to.have.property('status');
+          expect(res.body).to.have.property('error');
+          expect(res.body).to.have.property('status', myReturnStatus);
+          done();
+        });
+    } catch (err) {
+      throw err.message;
+    }
+  });
+
+  it('should return reset password cannot contain whotespace  400', (done) => {
+    try {
+      chai.request(app)
+        .post('/api/v1/auth/resetcomplete')
+        .send({
+          email: 'justsine@sn.com',
+          token: aToken,
+          resetpassword: '      '
+        })
+        .end((err, res) => {
+          expect(res.status).to.equal(400);
+          expect(res.body).to.be.an('object');
+          expect(res.body).to.have.property('status');
+          expect(res.body).to.have.property('error');
+          expect(res.body).to.have.property('status', myReturnStatus);
+          done();
+        });
+    } catch (err) {
+      throw err.message;
+    }
+  });
+});

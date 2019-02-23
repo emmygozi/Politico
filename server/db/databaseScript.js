@@ -64,6 +64,7 @@ const dropAndCreateTablesScript = `
    id SERIAL,
    createdBy INTEGER NOT NULL,
    office INTEGER NOT NULL,
+   body TEXT NOT NULL,
    createdOn timestamp without time zone NOT NULL DEFAULT now(),
    FOREIGN KEY (createdBy) REFERENCES users (id),
    FOREIGN KEY (office) REFERENCES office (id),
