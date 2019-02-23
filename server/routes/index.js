@@ -12,6 +12,7 @@ import validateOffice from '../middlewares/ValidateOffice';
 import CandidateValidate from '../middlewares/CandidateValidate';
 import VotersValidation from '../middlewares/VotersValidation';
 import Authorization from '../middlewares/Authorization';
+import resetpasswordInit from '../middlewares/resetPassword';
 
 const router = express.Router();
 
@@ -25,6 +26,9 @@ router.delete('/parties/:id', Authorization.authorize, Authorization.isAdmin,
 
 router.post('/auth/signup', ValidatePostRequest.validateUserSignup, Users.signup);
 router.post('/auth/login', validateLogin, Users.login);
+
+router.post('/auth/reset', resetpasswordInit, Users.resetPasswordInitial);
+router.post('/auth/resetcomplete', Users.passwordResetComplete);
 
 router.get('/offices', Offices.getAll);
 router.get('/offices/:id', validateOfficeId, Offices.getOneOffice);
