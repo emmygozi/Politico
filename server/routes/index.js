@@ -3,6 +3,7 @@ import Candidates from '../controllers/Candidates';
 import Users from '../controllers/Users';
 import Parties from '../controllers/Party';
 import Offices from '../controllers/Office';
+import Petition from '../controllers/Petition';
 import Vote from '../controllers/Vote';
 import { validatePartyId, validateOfficeId, validateUserId } from '../middlewares/validateUserId';
 import ValidatePostRequest from '../middlewares/ValidatePostRequest';
@@ -14,6 +15,7 @@ import VotersValidation from '../middlewares/VotersValidation';
 import Authorization from '../middlewares/Authorization';
 import resetpasswordInit from '../middlewares/resetPassword';
 import resetpasswordComplete from '../middlewares/resetPasswordComplete';
+import validatePetition from '../middlewares/validatePetition';
 
 const router = express.Router();
 
@@ -34,6 +36,8 @@ router.post('/auth/resetcomplete', resetpasswordComplete, Users.passwordResetCom
 router.get('/offices', Offices.getAll);
 router.get('/offices/:id', validateOfficeId, Offices.getOneOffice);
 router.post('/offices', Authorization.authorize, Authorization.isAdmin, validateOffice, Offices.createOffice);
+
+router.post('/petitions', Authorization.authorize, validatePetition, Petition.createPetition);
 
 router.get('/office/candidates', Candidates.getAll);
 router.post('/office/:id/register', validateUserId, Authorization.authorize, Authorization.isAdmin,
