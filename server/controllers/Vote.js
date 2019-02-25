@@ -23,7 +23,7 @@ class Vote {
     const { id } = req.params;
 
     const { rows } = await pool.query(`SELECT office, candidate,
-    count(candidate) as results FROM vote where vote.office = '${id}' GROUP BY vote.candidate , vote.office`);
+    count(candidate)::integer as results FROM vote where vote.office = '${id}' GROUP BY vote.candidate , vote.office`);
     if (rows.length === 0) {
       return res.status(404)
         .json({ status: 404, error: 'The office requested does not exist' });
