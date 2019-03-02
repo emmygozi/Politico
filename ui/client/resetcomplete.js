@@ -39,7 +39,7 @@ const resetComplete = e => {
         showNotification.style.width = "100%";
         showNotification.innerHTML = "Password sucessfully changed!";
         setTimeout(() => {
-          window.location.replace("index.html");
+          window.location.replace("login.html");
         }, 7000);
       }
     })
