@@ -60,8 +60,10 @@
       </div>
       <div id="signup-case">
         <h2 id="signup-header">Login</h2>
+
         <div id="signup-input-case">
-          <form action="admin/admin.html">
+            <div id="notifyUserLogin" style="line-height: 1.5; font-size: 1rem; margin-bottom: 2rem; "></div>
+          <form id="myLoginForm">
             <div>
               <p class="small-font-size">Email</p>
               <input type="email" name="email" placeholder="Email..." /><br />
@@ -72,7 +74,7 @@
                 placeholder="Password..."
               />
               <br />
-              <button class="button"><a href="admin/admin.html" style="text-decoration: none; color: white;"> Login</a></button>
+              <button class="button">Login</button>
             </div>
             <a href="resetpassword.html" style=" font-size: 15px;color: #111A25">Forgot password?</a>
           </form>
@@ -85,5 +87,6 @@
     </div>
 
     <script src="js/index.js"></script>
+    <script src="client/login.js"></script>
   </body>
 </html>
