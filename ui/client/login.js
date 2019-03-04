@@ -34,7 +34,8 @@ const login = e => {
           showNotification.style.display = "none";
         }, 5000);
       } else {
-        localStorage.token = result.data.token;
+        localStorage.token = result.data[0].token;
+        console.log(localStorage.token);
         showNotification.style.color = "#49d789";
         showNotification.style.display = "block";
         showNotification.style.width = "100%";
