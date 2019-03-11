@@ -73,7 +73,12 @@ class Users {
     );
 
     res.status(200)
-      .json({ status: 200, data: [{ token, user: { id: rows[0][0], email: rows[0][1] } }] });
+      .json(
+        {
+          status: 200,
+          data: [{ token, user: { id: rows[0][0], email: rows[0][1], isAdmin: rows[0][3] } }]
+        }
+      );
   }
 
   static async resetPasswordInitial(req, res) {
