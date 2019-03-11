@@ -35,14 +35,23 @@ const login = e => {
         }, 5000);
       } else {
         localStorage.token = result.data[0].token;
+        localStorage.isAdmin = result.data[0].user.isAdmin;
         console.log(localStorage.token);
+        console.log(result.data[0].user.isAdmin);
         showNotification.style.color = "#49d789";
         showNotification.style.display = "block";
         showNotification.style.width = "100%";
         showNotification.innerHTML = "Login successful";
+        if(localStorage.isAdmin === 'True') {
+          setTimeout(() => {
+            window.location.replace("admin/admin.html");
+          }, 5000);
+        }
+        else {
         setTimeout(() => {
           window.location.replace("index.html");
         }, 5000);
+      }
       }
     })
     .catch(err => console.log(err));
