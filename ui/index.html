@@ -19,23 +19,29 @@
     />
     <link rel="stylesheet" type="text/css" href="css/index.css" />
     <link rel="stylesheet" type="text/css" href="css/mobile.css">
-    <style></style>
+    <style>
+            #make-active {
+        color: black;
+        background-color: #ddd;
+      }
+    </style>
   </head>
 
   <body>
     <div id="mynav-flex-container">
       <div id="mynavbar" class="nav-styles">
-        <a href="index.html">Home</a> <a href="viewresult.html">View result</a>
-        <a href="candidate.html">Become a candidate</a> <a href="vote.html">Vote</a>
-        <a href="petition.html">Petition result</a>
+        <a id="make-active" href="index.html">Home</a> <a href="viewresult.html" id="hideTopicZero">View result</a>
+        <a href="candidate.html" id="hideTopicOne">Become a candidate</a> <a href="vote.html" id="hideTopicTwo">Vote</a>
+        <a href="petition.html" id="hideTopicThree">Petition result</a>
       </div>
       <div id="push-right" class="nav-styles">
         <a id="pollogo" href="index.html">POLITICO</a>
-        <a id="reg" href="signup.html">Signup</a>
-        <a id="log" href="login.html">Login</a>
+        
         <a id="ham" href="#"><i class='fa fa-bars'></i></a>
       </div>
     </div>
+    <script src="client/isLogged.js"></script>
+
 
     <div id="drop-down-container">
       <div class="drop-down" id="dropdown-child-one">
@@ -53,7 +59,7 @@
 
     <div class="myflex-container">
       <div
-        style="justify-content: flex-start; width: 28%; align-self: center; height: 14.95em;margin-left: -1em; margin-top: -1em; "
+        style="justify-content: flex-start; width: 30%; align-self: center; height: 14.95em;margin-left: -1em; margin-top: -1em; "
       >
         <div>
           <div><i class="fa fa-star" style="padding-left: 2em;"></i></div>
@@ -65,17 +71,6 @@
       </div>
       <div id="middle-flex">
         <img src="img/womann.png" height="100%;" width="100%;" />
-      </div>
-      <div
-        style="justify-content: flex-end; align-self: center;   width: 17%; margin-top: -2.1em; margin-right: -1em; "
-        id="nav-flex-container"
-        class="nav-flex-container"
-      >
-        <div class="hide-text"><a href="index.html">Home</a></div>
-        <div class="hide-text"><a href="viewresult.html">Result</a></div>
-        <div class="hide-text"><a href="vote.html">Vote</a></div>
-        <div class="hide-text"><a href="signup.html">Signup</a></div>
-        <div class="hide-text" id="blue-hide-text"><a href="login.html">Login</a></div>
       </div>
     </div>
 
@@ -136,12 +131,17 @@
       <p>&#169; EMMYGOZI 2019, Andela Nigeria Fellowship Cycle 41</p>
     </div>
 
+
     <script>
+
       window.onload = function addScript( ) {
   var s = document.createElement( 'script' );
   s.setAttribute( 'src', 'js/index.js' );
   document.body.appendChild( s );
+
+  
 }
     </script>
+        
   </body>
 </html>
