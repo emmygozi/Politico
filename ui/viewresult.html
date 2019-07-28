@@ -22,12 +22,16 @@
       #mynav-flex-container {
         display: flex;
       }
+      #make-active {
+        color: black;
+        background-color: #ddd;
+      }
     </style>
   </head>
   <body>
     <div id="mynav-flex-container">
       <div id="mynavbar" class="nav-styles">
-        <a href="index.html">Home</a> <a href="viewresult.html">View result</a>
+        <a  href="index.html">Home</a> <a id="make-active" href="viewresult.html">View result</a>
         <a href="candidate.html">Become a candidate</a>
         <a href="vote.html">Vote</a> <a href="petition.html">Petition result</a>
       </div>
@@ -42,7 +46,7 @@
       <div class="drop-down" id="dropdown-child-one">
         <a href="index.html">Home</a>
       </div>
-      <div class="drop-down"><a href="viewresult.html">View result</a></div>
+      <div class="drop-down"><a id="make-active" href="viewresult.html">View result</a></div>
       <div class="drop-down"><a href="petition.html">Petition result</a></div>
       <div class="drop-down">
         <a href="candidate.html">Become a candidate</a>
@@ -54,6 +58,7 @@
     </div>
 
     <div id="signup-case">
+        <h2 id="signup-header" style="text-align: center">View result</h2>
       <table>
         <tr>
           <th>Party name</th>

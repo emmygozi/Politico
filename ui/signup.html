@@ -42,12 +42,12 @@
       <div class="drop-down" id="dropdown-child-one">
         <a href="index.html">Home</a>
       </div>
-      <div class="drop-down"><a href="vote.html">View result</a></div>
+      <div class="drop-down"><a href="viewresult.html">View result</a></div>
       <div class="drop-down"><a href="petition.html">Petition result</a></div>
       <div class="drop-down">
         <a href="candidate.html">Become a candidate</a>
       </div>
-      <div class="drop-down"><a href="viewresult.html">Vote</a></div>
+      <div class="drop-down"><a href="vote.html">Vote</a></div>
       <div class="drop-down" id="last-two">
         <a href="login.html">Login</a>
       </div>
@@ -63,7 +63,8 @@
       <div id="signup-case">
         <h2 id="signup-header">Signup</h2>
         <div id="signup-input-case">
-          <form action="admin/admin.html">
+            <div id="notifyUser" style="line-height: 1.5; font-size: 1rem; margin-bottom: 2rem; "></div>
+          <form id="signupForm" name="signupForm">
             <div id="resize-signup-form">
               <p class="small-font-size">First Name</p>
               <input type="text" name="firstname" placeholder="First name..." />
@@ -79,6 +80,12 @@
                 name="password"
                 placeholder="Password..."
               />
+              <p class="small-font-size">Confirm Password</p>
+              <input
+                type="password"
+                name="confirmpass"
+                placeholder="Password..."
+              />
               <p class="small-font-size">Phone Number</p>
               <input type="tel" name="phoneNumber" placeholder="Phone...">
               <p class="small-font-size">Passport Url</p>
@@ -87,7 +94,7 @@
                 name="passportUrl"
                 placeholder="Passport url..."
               />
-              <button class="button" ><a href="admin/admin.html" style="text-decoration: none; color: white;">Register</a></button>
+              <button class="button" type="submit" >Register</button>
             </div>
           </form>
         </div>
@@ -99,5 +106,6 @@
     </div>
 
     <script src="js/index.js"></script>
+    <script src="client/signup.js"></script>
   </body>
 </html>
