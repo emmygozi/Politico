@@ -1,4 +1,17 @@
-@media screen and (max-width: 800px) {
+@media screen and (max-width: 768px) {
+  #image-text {
+    width: 100%;
+  }
+  #mynavbar {
+    width: 62.4%;
+  }
+  table {
+    font-size: 20px;
+    margin-left: 7rem;
+  }
+}
+
+@media screen and (max-width: 425px) {
   #mynav-flex-container {
     display: flex;
   }
@@ -115,18 +128,36 @@
 
   #little-cards1 {
     display: none;
+    font-size: 15px;
+    margin-right: 2px;
+    margin-left: -3px;
   }
 
   #little-cards2 {
     display: none;
+    font-size: 15px;
+    margin-right: 2px;
+    margin-left: 2px;
   }
 
   #little-cards3 {
     display: none;
+    font-size: 15px;
+    margin-right: 2px;
+    margin-left: 2px;
   }
 
   #little-cards4 {
     display: none;
+    font-size: 15px;
+    margin-right: 2px;
+    margin-left: 2px;
+  }
+
+  #makescrollable {
+    overflow-x: auto;
+    white-space: nowrap;
+    width: 15em;
   }
 
   #report-table {
@@ -136,7 +167,7 @@
 
   table {
     font-size: 14px;
-    margin-left: 0rem;
+    margin-left: 1rem;
   }
 
   .petbuttontwo {
@@ -158,7 +189,15 @@
   }
 
   #adjust-for-mobile {
-    width: 48vh;
+    width: 45vh;
+  }
+
+  #adjust-for-mobile2 {
+    width: 11em;
+  }
+
+  #adjust-for-mobile3 {
+    width: 11em;
   }
 
   #remove-margin-here {

@@ -4,4 +4,4 @@ server/dist
 coverage
 .nyc_output
 .env
-.DS_Store
+.Ds_Store

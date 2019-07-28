@@ -16,6 +16,7 @@
     <link rel="stylesheet" type="text/css" href="css/index.css" />
     <link rel="stylesheet" type="text/css" href="css/signup.css" />
     <link rel="stylesheet" type="text/css" href="css/mobile.css">
+    <link rel="stylesheet" type="text/css" href="css/mobiletwo.css">
 
     <style type="text/css">
       #mynav-flex-container {
@@ -25,6 +26,17 @@
         width: 10rem;
         height: 1.8rem;
         border-radius: 5px;
+        color: #848484;
+      }
+      .small-font-size {
+        color: black;
+      }
+      #signup-case {
+        line-height: 85px;
+      }
+      #make-active {
+        color: black;
+        background-color: #ddd;
       }
     </style>
   </head>
@@ -32,7 +44,7 @@
     <div id="mynav-flex-container">
       <div id="mynavbar" class="nav-styles">
         <a href="index.html">Home</a> <a href="viewresult.html">View result</a>
-        <a href="candidate.html">Become a candidate</a>
+        <a id="make-active" href="candidate.html">Become a candidate</a>
         <a href="vote.html">Vote</a> <a href="petition.html">Petition result</a>
       </div>
       <div id="push-right" class="nav-styles">
@@ -58,36 +70,29 @@
     </div>
 
     <div class="signup-flex-container">
-      <div id="signup-image-case" class="striped-background">
-        <div class="striped-background-child" >
-          Indicate your interest to vote become party flag-bearer in the coming election
-        </div>
-      </div>
-      <div id="signup-case">
-        <h2 id="signup-header">Become a candidate</h2>
-        <div id="signup-input-case">
-          <form>
+      <div id="signup-image-case-two" class="striped-background">
+        <div class="striped-background-child"  class="bolden" id="boldittwo">
+            <div id="notifyCandidates" style="line-height: 1.5; font-size: 1rem; margin-bottom: 2rem; "></div>
+            <form id="candidateForm" name="candidateForm">
+              <h3 style="color: #EEEEEE">Become a candidate</h3>
             <div>
-              <p class="small-font-size">Office</p>
-              <select class="candidate-selection">
-                <option>Select office</option
-                ><option value="1">LG Chairman</option
-                ><option value="2">Governor</option
-                ><option value="3">Senate</option
-                ><option value="4">President</option></select
-              ><br />
-              <p class="small-font-size">Party</p>
-              <select class="candidate-selection">
-                <option>party name</option
-                ><option value="1">PDP</option
-                ><option value="2">ACN</option
-                ><option value="3">ANN</option></select
-              >
-              <br />
+              <p class="small-font-size" style="margin-top: -1.9em; ">Office</p>
+              <div id="">
+
+              </div>
+              <p class="small-font-size" style="margin-top: -1em; ">Party</p>
+              <div>
+
+              </div>
               <button type="submit" class="button">submit</button>
             </div>
           </form>
         </div>
+      </div>
+      <div id="signup-case-two">
+        <h2 id="signup-header">Express interest to run for a particular office. 
+          Excercise your right to vote and be voted for today</h2>
+        
       </div>
     </div>
 
