@@ -2,10 +2,7 @@ import pool from '../db/config';
 
 class Party {
   static async getAll(req, res) {
-    const { rows } = await pool.query(`select parties.id as id, parties.name as name, 
-    parties.logoUrl, parties.hqAddress, parties.dateadded, 
-    candidates.party as candidate from parties 
-    inner join candidates on parties.id=candidates.party ORDER BY id LIMIT 10`);
+    const { rows } = await pool.query('select * from parties');
 
     res.status(200).json({ status: 200, data: rows });
   }
