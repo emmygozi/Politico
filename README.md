@@ -48,7 +48,6 @@ more info:
 - According to specified endpoints, Make get/post/patch/delete request to http://localhost:8000/api/v1/
 
 ### Testing
-
 - Navigate to the project location in your terminal.
 - Run ``` yarn test/ npm test ``` to run the test.
 
